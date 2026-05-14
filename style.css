@@ -1,0 +1,1720 @@
+/**
+ * style.css — VitalTrek stylesheet
+ * NexumDevs · UPC 2026
+ */
+
+/* ================================================
+   css custom properties — design tokens
+================================================ */
+:root {
+  /* surface colors — section backgrounds */
+  --color-surface-hero:       #2b3547;
+  --color-surface-nav:        #1e2b3c;
+  --color-surface-deepest:    #17202e;
+  --color-surface-card-dark:  #364257;
+  --color-surface-card-mid:   #2e3b4e;
+  --color-surface-light:      #ebf0f5;
+  --color-surface-lighter:    #f2f6fa;
+
+  /* plan section colors — pricing cards */
+  --color-plan-card:          #8aa4bc;
+  --color-plan-card-featured: #c3daf0;
+  --color-plan-price-box:     #2c3e50;
+
+  /* accent colors — primary and secondary actions */
+  --color-accent-primary:       #e8643c;
+  --color-accent-primary-hover: #d4562e;
+  --color-accent-secondary:     #4a8fd4;
+
+  /* text colors — hierarchy levels */
+  --color-text-inverse:   #fff;
+  --color-text-subtle:    rgba(255, 255, 255, 0.65);
+  --color-text-primary:   #1a2332;
+  --color-text-secondary: #3d4e63;
+  --color-text-tertiary:  #6b7a8d;
+
+  /* border colors */
+  --color-border-inverse:  rgba(255, 255, 255, 0.08);
+  --color-border-default:  rgba(26, 35, 50, 0.10);
+
+  /* shadows — elevation levels */
+  --shadow-elevation-high: 0 12px 40px rgba(0, 0, 0, 0.28);
+  --shadow-card:           0 4px 20px rgba(0, 0, 0, 0.12);
+  --shadow-elevation-low:  0 2px 10px rgba(0, 0, 0, 0.08);
+
+  /* border radius — component scale */
+  --radius-button:  8px;
+  --radius-card:    14px;
+  --radius-section: 20px;
+  --radius-hero:    28px;
+
+  /* layout */
+  --height-navbar: 66px;
+}
+
+/* ================================================
+   reset — box model and baseline normalization
+================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-surface-lighter);
+  color: var(--color-text-primary);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* accessibility — skip to main content and screen-reader-only utility */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* focus-visible — keyboard navigation outline for all interactive elements */
+:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 3px;
+}
+
+/* ================================================
+   navbar — fixed top bar with logo and navigation
+================================================ */
+.navbar {
+  align-items: center;
+  background: var(--color-surface-nav);
+  border-bottom: 1px solid var(--color-border-inverse);
+  display: flex;
+  gap: 16px;
+  height: var(--height-navbar);
+  justify-content: space-between;
+  left: 0;
+  padding: 0 48px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+/* brand logo link */
+.nav-logo {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  height: 100px;
+  object-fit: contain;
+  width: 100px;
+}
+
+.nav-logo-text {
+  color: var(--color-text-inverse);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.15px;
+}
+
+/* collapsible nav links — centered on desktop */
+.nav-collapse {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-links {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  border-radius: 7px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 7px 14px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-inverse);
+}
+
+/* right-side action group */
+.nav-actions {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+/* language toggle pill */
+.lang-toggle {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+  padding: 3px 4px 3px 10px;
+  transition: background 0.2s;
+}
+
+.lang-toggle:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.lang-code {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.lang-flag-pill {
+  align-items: center;
+  background: var(--color-accent-primary);
+  border-radius: 20px;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 13px;
+  height: 22px;
+  justify-content: center;
+  transition: background 0.2s;
+  width: 30px;
+}
+
+.lang-toggle:hover .lang-flag-pill {
+  background: var(--color-accent-primary-hover);
+}
+
+/* join cta button */
+.btn-join {
+  background: var(--color-accent-primary);
+  border: none;
+  border-radius: var(--radius-button);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 22px;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.btn-join:hover {
+  background: var(--color-accent-primary-hover);
+  transform: translateY(-1px);
+}
+
+/* hamburger toggle — visible on mobile only */
+.hamburger-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 5px;
+  padding: 6px;
+}
+
+.hamburger-button span {
+  background: var(--color-text-inverse);
+  border-radius: 2px;
+  display: block;
+  height: 2px;
+  transition: opacity 0.3s, transform 0.3s;
+  width: 22px;
+}
+
+/* animated hamburger → close icon when menu is open */
+.hamburger-button.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-button.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ================================================
+   shared helpers — section tags and common buttons
+================================================ */
+
+/* section label above headings */
+.section-tag {
+  color: var(--color-accent-primary);
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+/* inline accent color utilities used in headings */
+.color-accent-primary {
+  color: var(--color-accent-primary);
+}
+
+.color-accent-secondary {
+  color: var(--color-accent-secondary);
+}
+
+/* primary filled button */
+.btn-primary {
+  background: var(--color-accent-primary);
+  border: none;
+  border-radius: var(--radius-button);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 28px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-primary-hover);
+  transform: translateY(-2px);
+}
+
+/* ghost outline button */
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-button);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 28px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.70);
+}
+
+/* ================================================
+   hero — full-height banner with headline and image
+================================================ */
+.hero {
+  align-items: center;
+  background: var(--color-surface-hero);
+  display: grid;
+  gap: 64px;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  padding: calc(var(--height-navbar) + 64px) 48px 80px;
+}
+
+/* text content column inside hero grid */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-badge {
+  color: var(--color-accent-primary);
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  gap: 10px;
+  letter-spacing: 0.10em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+/* decorative lines flanking the badge text */
+.hero-badge::before,
+.hero-badge::after {
+  background: var(--color-accent-primary);
+  border-radius: 2px;
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  height: 2px;
+  width: 26px;
+}
+
+.hero h1 {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 5vw, 66px);
+  font-weight: 700;
+  line-height: 1.10;
+  margin-bottom: 20px;
+}
+
+/* italic word in hero headline */
+.hero h1 em {
+  color: rgba(255, 255, 255, 0.50);
+  font-style: italic;
+}
+
+.hero-desc {
+  color: var(--color-text-subtle);
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 440px;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* hero image container with rounded corners */
+.hero-image-wrap {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-hero);
+  box-shadow: var(--shadow-elevation-high);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image-wrap img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+/* ================================================
+   problem — market gap section with stat cards
+================================================ */
+.problem {
+  align-items: center;
+  background: var(--color-surface-nav);
+  display: grid;
+  gap: 72px;
+  grid-template-columns: 1fr 1fr;
+  padding: 96px 48px;
+}
+
+.problem h2 {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 3.5vw, 48px);
+  line-height: 1.15;
+  margin-bottom: 22px;
+}
+
+.problem-desc {
+  color: var(--color-text-subtle);
+  font-size: 15px;
+  line-height: 1.75;
+  max-width: 420px;
+}
+
+/* 2×2 grid of numeric stat cards */
+.stats-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.stat-card {
+  background: var(--color-surface-card-dark);
+  border-left: 3px solid var(--color-accent-primary);
+  border-radius: var(--radius-card);
+  padding: 28px 22px;
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.stat-number {
+  color: var(--color-accent-secondary);
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.stat-desc {
+  color: var(--color-text-subtle);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ================================================
+   tourists — features for adventurous tourists
+================================================ */
+.tourists {
+  align-items: start;
+  background: var(--color-surface-lighter);
+  display: grid;
+  gap: 72px;
+  grid-template-columns: 1fr 1fr;
+  padding: 96px 48px;
+}
+
+.tourists h2 {
+  color: var(--color-text-primary);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.20;
+  margin-bottom: 18px;
+}
+
+.tourists-desc {
+  color: var(--color-text-tertiary);
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+/* feature checklist with icon bullets */
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  list-style: none;
+}
+
+.checklist li {
+  align-items: flex-start;
+  display: flex;
+  gap: 13px;
+}
+
+.check-icon {
+  align-items: center;
+  background: var(--color-accent-secondary);
+  border-radius: 5px;
+  display: flex;
+  flex-shrink: 0;
+  height: 22px;
+  justify-content: center;
+  margin-top: 1px;
+  width: 22px;
+}
+
+.check-icon svg {
+  height: 12px;
+  width: 12px;
+}
+
+.checklist li strong {
+  color: var(--color-text-primary);
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.checklist li span {
+  color: var(--color-text-tertiary);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* 2×2 grid of feature cards */
+.features-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.feat-card {
+  background: #fff;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.feat-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
+  transform: translateY(-3px);
+}
+
+.feat-icon {
+  align-items: center;
+  background: var(--color-surface-nav);
+  border-radius: 9px;
+  display: flex;
+  height: 38px;
+  justify-content: center;
+  margin-bottom: 14px;
+  width: 38px;
+}
+
+.feat-icon svg {
+  height: 19px;
+  width: 19px;
+}
+
+.feat-card h4 {
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.feat-card p {
+  color: var(--color-text-tertiary);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+/* ================================================
+   agencies — features for tour agencies
+================================================ */
+.agencies {
+  align-items: start;
+  background: linear-gradient(135deg, #2d5f8a 0%, #1e4470 100%);
+  display: grid;
+  gap: 72px;
+  grid-template-columns: 1fr 1fr;
+  padding: 96px 48px;
+}
+
+.agencies h2 {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3vw, 44px);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.agencies-desc {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* 2×2 grid of agency feature cards */
+.agency-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.agency-card {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-card);
+  padding: 22px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.agency-card:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-3px);
+}
+
+.agency-card-head {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.agency-card-icon {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 7px;
+  display: flex;
+  flex-shrink: 0;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+.agency-card-icon svg {
+  fill: var(--color-text-inverse);
+  height: 15px;
+  width: 15px;
+}
+
+.agency-card h4 {
+  color: var(--color-text-inverse);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.agency-card p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+/* ================================================
+   ecosystem — iot components overview
+================================================ */
+.ecosystem {
+  background: var(--color-surface-deepest);
+  padding: 96px 48px;
+  text-align: center;
+}
+
+.ecosystem h2 {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 52px);
+  margin-bottom: 16px;
+}
+
+.ecosystem-desc {
+  color: var(--color-text-subtle);
+  font-size: 16px;
+  line-height: 1.75;
+  margin: 0 auto 56px;
+  max-width: 560px;
+}
+
+/* four-column grid for ecosystem component cards */
+.eco-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.eco-card {
+  background: var(--color-surface-card-mid);
+  border: 1px solid var(--color-border-inverse);
+  border-radius: var(--radius-section);
+  padding: 36px 22px 32px;
+  text-align: left;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.eco-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+/* svg icon container for ecosystem cards */
+.eco-icon {
+  display: block;
+  height: 40px;
+  margin-bottom: 20px;
+  width: 40px;
+}
+
+.eco-icon svg {
+  height: 100%;
+  width: 100%;
+}
+
+.eco-card h3 {
+  color: var(--color-text-inverse);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.eco-card p {
+  color: var(--color-text-subtle);
+  font-size: 13px;
+  line-height: 1.60;
+}
+
+/* ================================================
+   plans — pricing cards for tourists and agencies
+================================================ */
+.plans {
+  background: var(--color-surface-lighter);
+  padding: 96px 48px;
+  text-align: center;
+}
+
+.plans h2 {
+  color: var(--color-text-primary);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 46px);
+  margin-bottom: 10px;
+}
+
+.plans-subtitle {
+  color: var(--color-text-tertiary);
+  font-size: 14px;
+  margin: 0 auto 36px;
+  max-width: 540px;
+}
+
+/* tab toggle — tourists vs agencies selector */
+.plans-toggle {
+  background: rgba(26, 35, 50, 0.08);
+  border-radius: 12px;
+  display: inline-flex;
+  gap: 4px;
+  margin-bottom: 52px;
+  padding: 5px;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  border-radius: 9px;
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 30px;
+  transition: all 0.22s;
+}
+
+.toggle-btn.active {
+  background: var(--color-accent-primary);
+  box-shadow: 0 2px 12px rgba(232, 100, 60, 0.30);
+  color: var(--color-text-inverse);
+}
+
+/* plan grid — hidden by default, shown when tab is active */
+.plans-grid {
+  display: none;
+  gap: 22px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  max-width: 1060px;
+  text-align: left;
+}
+
+.plans-grid.active {
+  display: grid;
+}
+
+/* individual plan card */
+.plan-card {
+  background: var(--color-plan-card);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-section);
+  padding: 30px 26px;
+  position: relative;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.plan-card:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+  transform: translateY(-5px);
+}
+
+/* highlighted featured plan */
+.plan-card.featured {
+  background: var(--color-plan-card-featured);
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 4px 24px rgba(232, 100, 60, 0.18);
+}
+
+.plan-tier {
+  color: var(--color-accent-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.plan-title {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.20;
+  margin-bottom: 8px;
+}
+
+.plan-card.featured .plan-title {
+  color: var(--color-text-primary);
+}
+
+.plan-desc {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.plan-card.featured .plan-desc {
+  color: var(--color-text-secondary);
+}
+
+/* price box with dark background */
+.plan-price {
+  background: var(--color-plan-price-box);
+  border-radius: 10px;
+  margin-bottom: 22px;
+  padding: 16px 18px;
+}
+
+.plan-price-main {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* smaller font for non-numeric price labels like "Free" or "Custom" */
+.plan-price-main.free {
+  font-size: 30px;
+}
+
+.plan-price-note {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 11.5px;
+  line-height: 1.4;
+  margin-top: 5px;
+}
+
+/* feature list inside each plan card */
+.plan-features {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.plan-features li {
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.80);
+  display: flex;
+  font-size: 12.5px;
+  gap: 7px;
+  line-height: 1.45;
+  padding: 6px 0;
+}
+
+.plan-card.featured .plan-features li {
+  border-bottom-color: rgba(26, 35, 50, 0.10);
+  color: var(--color-text-secondary);
+}
+
+.plan-features li:last-child {
+  border-bottom: none;
+}
+
+/* checkmark tick in feature list */
+.plan-features li .tick {
+  color: var(--color-accent-primary);
+  flex-shrink: 0;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+/* group label row separating feature categories */
+.plan-features .group-lbl {
+  align-items: center;
+  border-bottom: none;
+  color: rgba(255, 255, 255, 0.40);
+  display: flex;
+  font-size: 10px;
+  font-weight: 700;
+  gap: 6px;
+  letter-spacing: 0.08em;
+  padding: 10px 0 3px;
+  text-transform: uppercase;
+}
+
+.plan-card.featured .plan-features .group-lbl {
+  color: rgba(26, 35, 50, 0.40);
+}
+
+/* small inline svg icon inside group label */
+.group-icon {
+  flex-shrink: 0;
+  height: 12px;
+  width: 12px;
+}
+
+/* plan call-to-action button */
+.btn-plan {
+  background: rgba(255, 255, 255, 0.14);
+  border: none;
+  border-radius: var(--radius-button);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px;
+  transition: background 0.2s, transform 0.15s;
+  width: 100%;
+}
+
+.btn-plan:hover {
+  background: rgba(255, 255, 255, 0.24);
+  transform: translateY(-1px);
+}
+
+/* orange variant for featured plan cta */
+.btn-plan.orange-btn {
+  background: var(--color-accent-primary);
+  color: var(--color-text-inverse);
+}
+
+.btn-plan.orange-btn:hover {
+  background: var(--color-accent-primary-hover);
+}
+
+/* ================================================
+   testimonials — user quotes and reviews
+================================================ */
+.testimonials {
+  background: var(--color-surface-light);
+  padding: 96px 48px;
+  text-align: center;
+}
+
+.testimonials h2 {
+  color: var(--color-text-primary);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3vw, 42px);
+  margin-bottom: 12px;
+}
+
+.testimonials-sub {
+  color: var(--color-text-tertiary);
+  font-size: 14.5px;
+  margin-bottom: 52px;
+}
+
+/* three-column testimonial grid */
+.testi-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  max-width: 1060px;
+  text-align: left;
+}
+
+.testi-card {
+  background: #fff;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-section);
+  box-shadow: var(--shadow-elevation-low);
+  padding: 32px 26px;
+  position: relative;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.testi-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+  transform: translateY(-4px);
+}
+
+.testi-stars {
+  color: var(--color-accent-primary);
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+/* decorative large quotation mark */
+.testi-quote {
+  color: rgba(26, 35, 50, 0.06);
+  font-family: 'Playfair Display', serif;
+  font-size: 68px;
+  line-height: 1;
+  pointer-events: none;
+  position: absolute;
+  right: 22px;
+  top: 22px;
+}
+
+.testi-text {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.75;
+  margin-bottom: 22px;
+}
+
+.testi-author strong {
+  color: var(--color-text-primary);
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.testi-author span {
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+}
+
+.testi-tag {
+  background: rgba(232, 100, 60, 0.10);
+  border-radius: 20px;
+  color: var(--color-accent-primary);
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-top: 12px;
+  padding: 3px 11px;
+}
+
+/* ================================================
+   about — company identity, mission, vision and team
+================================================ */
+.about {
+  background: var(--color-surface-hero);
+  padding: 96px 48px;
+  text-align: center;
+}
+
+.about h2 {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3vw, 44px);
+  margin-bottom: 16px;
+}
+
+.about-desc {
+  color: var(--color-text-subtle);
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 0 auto 50px;
+  max-width: 600px;
+}
+
+/* three-column cards for identity, mission, vision */
+.about-cards {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto 60px;
+  max-width: 900px;
+}
+
+.about-card {
+  background: var(--color-surface-card-dark);
+  border: 1px solid var(--color-border-inverse);
+  border-radius: var(--radius-card);
+  padding: 28px 22px;
+  text-align: left;
+  transition: transform 0.2s;
+}
+
+.about-card:hover {
+  transform: translateY(-3px);
+}
+
+/* small pill label above card heading */
+.about-tag {
+  background: var(--color-accent-primary);
+  border-radius: 20px;
+  color: var(--color-text-inverse);
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  margin-bottom: 14px;
+  padding: 4px 12px;
+  text-transform: uppercase;
+}
+
+.about-card h3 {
+  color: var(--color-text-inverse);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.about-card p {
+  color: var(--color-text-subtle);
+  font-size: 13px;
+  line-height: 1.60;
+}
+
+.team-title {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  margin-bottom: 32px;
+}
+
+/* five-column grid for team member cards */
+.team-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.team-card {
+  background: var(--color-surface-card-dark);
+  border: 1px solid var(--color-border-inverse);
+  border-radius: var(--radius-card);
+  padding: 24px 14px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.team-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+/* circular avatar placeholder */
+.team-avatar {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: 50%;
+  display: flex;
+  height: 52px;
+  justify-content: center;
+  margin: 0 auto 14px;
+  width: 52px;
+}
+
+.team-avatar svg {
+  fill: rgba(255, 255, 255, 0.45);
+  height: 26px;
+  width: 26px;
+}
+
+.team-card h4 {
+  color: var(--color-text-inverse);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.team-card p {
+  color: var(--color-text-subtle);
+  font-size: 11.5px;
+  line-height: 1.55;
+}
+
+/* ================================================
+   footer — brand, navigation, social, contact
+================================================ */
+footer {
+  background: var(--color-surface-nav);
+  border-top: 1px solid var(--color-border-inverse);
+  padding: 52px 48px 28px;
+}
+
+/* four-column footer layout */
+.footer-grid {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  align-items: center;
+  display: flex;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.footer-logo img {
+  height: 85px;
+  object-fit: contain;
+  width: 85px;
+}
+
+.footer-logo-name {
+  color: var(--color-text-inverse);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.footer-tagline {
+  color: var(--color-text-subtle);
+  font-size: 13px;
+  line-height: 1.60;
+  max-width: 240px;
+}
+
+.footer-col h5 {
+  color: var(--color-text-inverse);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.footer-col ul li a {
+  align-items: center;
+  color: var(--color-text-subtle);
+  display: flex;
+  font-size: 13px;
+  gap: 9px;
+  transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+  color: var(--color-text-inverse);
+}
+
+/* social network logo images */
+.social-icon-img {
+  border-radius: 4px;
+  flex-shrink: 0;
+  height: 20px;
+  object-fit: contain;
+  width: 20px;
+}
+
+/* contact row with icon and text */
+.contact-item {
+  align-items: center;
+  color: var(--color-text-subtle);
+  display: flex;
+  font-size: 13px;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+
+.contact-item a {
+  color: var(--color-text-subtle);
+  transition: color 0.2s;
+}
+
+.contact-item a:hover {
+  color: var(--color-text-inverse);
+}
+
+/* svg icon in contact items */
+.contact-item .icon {
+  flex-shrink: 0;
+  height: 15px;
+  opacity: 0.65;
+  width: 15px;
+}
+
+/* bottom copyright and legal links bar */
+.footer-bottom {
+  align-items: center;
+  border-top: 1px solid var(--color-border-inverse);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  padding-top: 24px;
+}
+
+.footer-bottom span {
+  color: rgba(255, 255, 255, 0.30);
+  font-size: 12px;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom-links a {
+  color: rgba(255, 255, 255, 0.30);
+  font-size: 12px;
+  transition: color 0.2s;
+}
+
+.footer-bottom-links a:hover {
+  color: var(--color-text-inverse);
+}
+
+/* ================================================
+   responsive — tablet breakpoint (max 1024px)
+================================================ */
+@media (max-width: 1024px) {
+  .eco-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ================================================
+   responsive — mobile breakpoint (max 900px)
+================================================ */
+@media (max-width: 900px) {
+  /* navbar collapses to dropdown */
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .nav-collapse {
+    align-items: flex-start;
+    background: var(--color-surface-nav);
+    border-bottom: 1px solid var(--color-border-inverse);
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    left: 0;
+    padding: 16px 20px 20px;
+    position: fixed;
+    right: 0;
+    top: var(--height-navbar);
+    z-index: 999;
+  }
+
+  .nav-collapse.open {
+    display: flex;
+  }
+
+  .nav-collapse .nav-links {
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+  }
+
+  .nav-collapse .nav-links a {
+    display: block;
+    font-size: 16px;
+    padding: 11px 14px;
+  }
+
+  .hamburger-button {
+    display: flex;
+  }
+
+  /* two-column sections stack to single column */
+  .agencies,
+  .hero,
+  .problem,
+  .tourists {
+    gap: 40px;
+    grid-template-columns: 1fr;
+    padding: 80px 24px 64px;
+  }
+
+  .hero {
+    padding-top: calc(var(--height-navbar) + 48px);
+  }
+
+  .about-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================================
+   responsive — small mobile breakpoint (max 600px)
+================================================ */
+@media (max-width: 600px) {
+  .about,
+  .agencies,
+  .ecosystem,
+  .hero,
+  .plans,
+  .problem,
+  .testimonials,
+  .tourists {
+    padding: 64px 18px;
+  }
+
+  .hero {
+    padding: calc(var(--height-navbar) + 32px) 18px 56px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .agency-grid,
+  .about-cards,
+  .eco-grid,
+  .features-grid,
+  .stats-grid,
+  .testi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-grid {
+    gap: 28px;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+  }
+
+  .btn-outline,
+  .btn-primary {
+    text-align: center;
+    width: 100%;
+  }
+
+  .plans-toggle {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .toggle-btn {
+    flex: 1;
+    padding: 10px 16px;
+    text-align: center;
+  }
+}
+
+/* ================================================
+   join modal — overlay and card
+================================================ */
+
+/* full-screen overlay — darkens the background */
+.modal-overlay {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  padding: 24px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2000;
+}
+
+/* hidden state — overrides display:flex when hidden attribute is present */
+.modal-overlay[hidden] {
+  display: none;
+}
+
+/* white card centered in the overlay */
+.modal-card {
+  background: var(--color-surface-lighter);
+  border-radius: var(--radius-section);
+  box-shadow: var(--shadow-elevation-high);
+  max-width: 520px;
+  padding: 40px 36px 32px;
+  position: relative;
+  width: 100%;
+}
+
+/* close button — top right corner */
+.modal-close {
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  padding: 4px;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  transition: background 0.2s, color 0.2s;
+  width: 32px;
+}
+
+.modal-close:hover {
+  background: rgba(26, 35, 50, 0.08);
+  color: var(--color-text-primary);
+}
+
+.modal-close svg {
+  height: 18px;
+  width: 18px;
+}
+
+/* modal heading and subtitle */
+.modal-title {
+  color: var(--color-text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.modal-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+/* shared styles for both action buttons */
+.modal-btn {
+  align-items: center;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 16px 20px;
+  text-decoration: none;
+  transition: filter 0.2s, transform 0.15s;
+  width: 100%;
+}
+
+.modal-btn:hover {
+  filter: brightness(0.93);
+  transform: translateY(-1px);
+}
+
+/* left side of button: icon + label */
+.modal-btn-left {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.modal-btn-left svg {
+  flex-shrink: 0;
+  height: 20px;
+  width: 20px;
+}
+
+/* arrow icon on the right */
+.modal-btn-arrow {
+  flex-shrink: 0;
+  height: 18px;
+  width: 18px;
+}
+
+/* primary button — filled green (matching AgroTrack reference) */
+.modal-btn-primary {
+  background: var(--color-accent-primary);
+  border-color: var(--color-accent-primary);
+  color: #fff;
+}
+
+/* secondary button — outlined green */
+.modal-btn-secondary {
+  background: transparent;
+  border-color: var(--color-surface-nav);
+  color: var(--color-surface-nav);
+}
+
+/* divider line before guest link */
+.modal-card::after {
+  background: rgba(26, 35, 50, 0.12);
+  content: '';
+  display: block;
+  height: 1px;
+  margin: 8px 0 20px;
+}
+
+/* guest link centered below divider */
+.modal-guest {
+  color: var(--color-text-secondary);
+  display: block;
+  font-size: 14px;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.modal-guest:hover {
+  color: var(--color-text-primary);
+}
+
+/* modal responsive — smaller padding on mobile */
+@media (max-width: 600px) {
+  .modal-card {
+    padding: 32px 20px 24px;
+  }
+
+  .modal-btn {
+    font-size: 15px;
+    padding: 14px 16px;
+  }
+}
