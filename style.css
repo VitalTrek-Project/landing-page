@@ -496,3 +496,75 @@ button {
   line-height: 1.55;
 }
 
+/* 
+   ecosystem — iot components overview
+ */
+.ecosystem {
+  background: var(--color-surface-deepest);
+  padding: 96px 48px;
+  text-align: center;
+}
+
+.ecosystem h2 {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 52px);
+  margin-bottom: 16px;
+}
+
+.ecosystem-desc {
+  color: var(--color-text-subtle);
+  font-size: 16px;
+  line-height: 1.75;
+  margin: 0 auto 56px;
+  max-width: 560px;
+}
+
+/* four-column grid for ecosystem component cards */
+.eco-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.eco-card {
+  background: var(--color-surface-card-mid);
+  border: 1px solid var(--color-border-inverse);
+  border-radius: var(--radius-section);
+  padding: 36px 22px 32px;
+  text-align: left;
+  transition: border-color 0.25s, transform 0.25s;
+}
+
+.eco-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+/* svg icon container for ecosystem cards */
+.eco-icon {
+  display: block;
+  height: 40px;
+  margin-bottom: 20px;
+  width: 40px;
+}
+
+.eco-icon svg {
+  height: 100%;
+  width: 100%;
+}
+
+.eco-card h3 {
+  color: var(--color-text-inverse);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.eco-card p {
+  color: var(--color-text-subtle);
+  font-size: 13px;
+  line-height: 1.60;
+}
