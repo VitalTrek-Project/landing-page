@@ -1,1 +1,485 @@
+<!doctype html>
+<!--
+ * index.html - VitalTrek landing page
+ * NexumDevs - UPC 2026
+-->
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VitalTrek — IoT platform for extreme adventure tourism in Peru. Monitor location, vital signs, and progress in real time.">
+    <meta name="keywords" content="VitalTrek, adventure tourism, IoT, trekking Peru, smartwatch, monitoring, NexumDevs">
+    <meta name="author" content="NexumDevs — UPC 2026">
+    <meta name="copyright" content="© 2026 VitalTrek — NexumDevs. All rights reserved.">
 
+    <!-- open graph locale -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_419">
+    <meta property="og:title" content="VitalTrek — Explore more. Worry less.">
+    <meta property="og:description" content="IoT platform for extreme adventure tourism in Peru.">
+    <meta property="og:type" content="website">
+
+    <title>VitalTrek — Explore more. Worry less.</title>
+
+    <link rel="icon" href="assets/images/vitaltrek-logo.png" type="image/png">
+    <!-- google fonts -->
+    <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+    >
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- aria-live region announces language changes to screen readers -->
+<body>
+<div
+        id="lang-announcer"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        class="visually-hidden"
+></div>
+
+<!--
+     navbar — fixed top navigation bar
+-->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+
+    <!-- brand logo -->
+    <a href="#home" class="nav-logo" aria-label="VitalTrek — go to home">
+        <img src="assets/images/vitaltrek-logo.png" alt="VitalTrek logo" width="40" height="40">
+        <span class="nav-logo-text">VitalTrek</span>
+    </a>
+
+    <!-- collapsible nav links — desktop center / mobile dropdown -->
+    <div class="nav-collapse" id="nav-collapse" role="menubar">
+        <ul class="nav-links" role="list">
+            <li role="none"><a href="#tourists" role="menuitem" data-i18n="nav.tourists">Tourists</a></li>
+            <li role="none"><a href="#agencies" role="menuitem" data-i18n="nav.agencies">Agencies</a></li>
+            <li role="none"><a href="#ecosystem" role="menuitem" data-i18n="nav.ecosystem">Ecosystem</a></li>
+            <li role="none"><a href="#plans" role="menuitem" data-i18n="nav.plans">Plans</a></li>
+            <li role="none"><a href="#about" role="menuitem" data-i18n="nav.about">About us</a></li>
+        </ul>
+    </div>
+
+    <!-- right-side actions: language toggle, hamburger, join cta -->
+    <div class="nav-actions">
+
+        <!-- language toggle pill -->
+        <button
+                class="lang-toggle"
+                onclick="toggleLanguage()"
+                aria-label="Switch to Spanish"
+                id="lang-toggle-btn"
+        >
+            <span class="lang-code" id="lang-code" aria-hidden="true">ES</span>
+            <span class="lang-flag-pill" id="lang-flag" aria-hidden="true">🇵🇪</span>
+        </button>
+
+        <!-- hamburger button — mobile only -->
+        <button
+                class="hamburger-button"
+                onclick="toggleMobileMenu()"
+                aria-expanded="false"
+                aria-controls="nav-collapse"
+                aria-label="Toggle navigation menu"
+        >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </button>
+
+        <!-- primary cta -->
+        <button class="btn-join" onclick="openJoinModal()" data-i18n="nav.join" aria-label="Join VitalTrek">Join</button>
+    </div>
+
+</nav>
+
+<!--
+     hero — main banner with value proposition
+-->
+<section class="hero" id="home" aria-labelledby="hero-heading">
+
+    <div class="hero-content">
+        <div class="hero-badge" data-i18n="hero.badge" role="note">
+            IoT platform for extreme adventure tourism in Peru
+        </div>
+
+        <h1 id="hero-heading">
+            <span data-i18n="hero.title-line">Explore more.</span><br>
+            <em data-i18n="hero.title-italic">Worry </em><span data-i18n="hero.title-bold">less.</span>
+        </h1>
+
+        <p class="hero-desc" data-i18n="hero.description">
+            VitalTrek connects adventurous tourists and tour agencies in a smart ecosystem
+            that monitors location, vital signs, and progress in real time, even without a signal.
+        </p>
+
+        <div class="hero-ctas">
+            <button class="btn-primary" data-i18n="hero.cta-tourist" aria-label="Get started as a tourist">
+                I am a tourist
+            </button>
+            <button class="btn-outline" data-i18n="hero.cta-agency" aria-label="Get started as an agency">
+                I have an agency
+            </button>
+        </div>
+    </div>
+
+    <div class="hero-image-wrap">
+        <img
+                src="assets/images/vitaltrek-image.png"
+                alt="Trekker exploring a snowy mountain route with VitalTrek app"
+                width="640"
+                height="480"
+        >
+    </div>
+
+</section>
+
+<!--
+     problem — statistics showing the market gap
+-->
+<section class="problem" id="problem" aria-labelledby="problem-heading">
+
+    <div>
+        <span class="section-tag" data-i18n="problem.tag">The Problem</span>
+        <h2 id="problem-heading">
+            <span data-i18n="problem.title-main">Adventure tourism </span>
+            <span class="color-accent-primary" data-i18n="problem.title-accent">has real risks.</span>
+        </h2>
+        <p class="problem-desc" data-i18n="problem.description">
+            The agencies manage remote groups using radios and phone calls. The trekkers get lost,
+            suffer altitude sickness, or experience medical emergencies with no way to alert others
+            in time. There's no tracking, no history, and no digital experience to build tourist loyalty.
+        </p>
+    </div>
+
+    <!-- statistics grid -->
+    <div class="stats-grid" role="list" aria-label="Market statistics">
+
+        <div class="stat-card" role="listitem">
+            <div
+                    class="stat-number"
+                    data-i18n="problem.stat-tourists-number"
+                    aria-label="4.2 million"
+            >4.2M</div>
+            <p class="stat-desc" data-i18n="problem.stat-tourists-desc">
+                Foreign tourists visit Peru annually, many for extreme adventure.
+            </p>
+        </div>
+
+        <div class="stat-card" role="listitem">
+            <div
+                    class="stat-number"
+                    data-i18n="problem.stat-iot-number"
+                    aria-label="Zero percent"
+            >0%</div>
+            <p class="stat-desc" data-i18n="problem.stat-iot-desc">
+                Local agencies use platforms with integrated IoT monitoring
+            </p>
+        </div>
+
+        <div class="stat-card" role="listitem">
+            <div
+                    class="stat-number"
+                    data-i18n="problem.stat-days-number"
+                    aria-label="3 or more days"
+            >3+</div>
+            <p class="stat-desc" data-i18n="problem.stat-days-desc">
+                Average number of days for a trek without visibility for the agency
+            </p>
+        </div>
+
+        <div class="stat-card" role="listitem">
+            <div class="stat-number" aria-label="Unlimited liability">∞</div>
+            <p class="stat-desc" data-i18n="problem.stat-liability-desc">
+                Legal liability for incidents without an active monitoring system
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!--
+     tourists — features for adventurous tourists
+-->
+<section class="tourists" id="tourists" aria-labelledby="tourists-heading">
+
+    <div>
+        <span class="section-tag" data-i18n="tourists.tag">For Adventurous Tourists</span>
+        <h2 id="tourists-heading">
+            <span data-i18n="tourists.title-pre">Your smart </span>
+            <span class="color-accent-secondary" data-i18n="tourists.title-accent">adventure partner.</span>
+        </h2>
+        <p class="tourists-desc" data-i18n="tourists.description">
+            VitalTrek transforms your smartphone into a personal navigation, tracking, and security system.
+            Explore with confidence knowing that someone always knows your location, even without internet access.
+        </p>
+
+        <!-- checklist of core tourist benefits -->
+        <ul class="checklist" aria-label="Core features for tourists">
+            <li>
+                <div class="check-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round">
+                        <path d="M20 6L9 17l-5-5"/>
+                    </svg>
+                </div>
+                <div>
+                    <strong data-i18n="tourists.offline-nav-title">Complete offline navigation</strong>
+                    <span data-i18n="tourists.offline-nav-desc">
+            Download maps and routes before you leave. Works in areas without signal using native GPS.
+          </span>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round">
+                        <path d="M20 6L9 17l-5-5"/>
+                    </svg>
+                </div>
+                <div>
+                    <strong data-i18n="tourists.wearable-title">Wearable device with vital signs</strong>
+                    <span data-i18n="tourists.wearable-desc">
+            Pulse, oxygenation, and temperature are automatically synchronized with your guide and agency.
+          </span>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round">
+                        <path d="M20 6L9 17l-5-5"/>
+                    </svg>
+                </div>
+                <div>
+                    <strong data-i18n="tourists.experience-title">Record of your experience</strong>
+                    <span data-i18n="tourists.experience-desc">
+            Photos, notes, and achievements from the tour are automatically saved with geographical context.
+          </span>
+                </div>
+            </li>
+            <li>
+                <div class="check-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.8" stroke-linecap="round">
+                        <path d="M20 6L9 17l-5-5"/>
+                    </svg>
+                </div>
+                <div>
+                    <strong data-i18n="tourists.contextual-info-title">Contextual tour information</strong>
+                    <span data-i18n="tourists.contextual-info-desc">
+            History, wildlife, altitude, climate and points of interest as you progress along the route.
+          </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- feature cards grid -->
+    <div class="features-grid" role="list" aria-label="Tourist feature cards">
+
+        <div class="feat-card" role="listitem">
+            <div class="feat-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6">
+                    <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                </svg>
+            </div>
+            <h4 data-i18n="tourists.feat-maps-title">Offline Maps</h4>
+            <p data-i18n="tourists.feat-maps-desc">
+                Downloadable maps with checkpoints, danger zones, and points of interest. Works offline.
+            </p>
+        </div>
+
+        <div class="feat-card" role="listitem">
+            <div class="feat-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6">
+                    <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+            </div>
+            <h4 data-i18n="tourists.feat-health-title">Health on the Road</h4>
+            <p data-i18n="tourists.feat-health-desc">
+                Continuous monitoring of heart rate and O₂ saturation. Automatic alerts for critical values.
+            </p>
+        </div>
+
+        <div class="feat-card" role="listitem">
+            <div class="feat-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+            </div>
+            <h4 data-i18n="tourists.feat-gps-title">GPS Tracking</h4>
+            <p data-i18n="tourists.feat-gps-desc">
+                Real-time position shared with your guide and emergency contacts, always.
+            </p>
+        </div>
+
+        <div class="feat-card" role="listitem">
+            <div class="feat-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6">
+                    <path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                    <circle cx="12" cy="13" r="3"/>
+                </svg>
+            </div>
+            <h4 data-i18n="tourists.feat-memory-title">Memory Maps</h4>
+            <p data-i18n="tourists.feat-memory-desc">
+                Geotagged photos and videos shared with other travelers at the same route points.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!--
+     agencies — features for tour agencies
+-->
+<section class="agencies" id="agencies" aria-labelledby="agencies-heading">
+
+    <div>
+        <span class="section-tag" data-i18n="agencies.tag">For the Tours Agencies</span>
+        <h2 id="agencies-heading" data-i18n="agencies.title">
+            Manage all your tours from one place.
+        </h2>
+        <p class="agencies-desc" data-i18n="agencies.description">
+            VitalTrek gives your agency a real-time command center. Monitor groups, receive alerts
+            for anomalies, and respond before a problem becomes an emergency.
+        </p>
+    </div>
+
+    <!-- agency feature cards grid -->
+    <div class="agency-grid" role="list" aria-label="Agency feature cards">
+
+        <div class="agency-card" role="listitem">
+            <div class="agency-card-head">
+                <div class="agency-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="#fff" stroke-width="1.6" fill="none"/>
+                        <path d="M3 9h18M9 21V9" stroke="#fff" stroke-width="1.6" fill="none"/>
+                    </svg>
+                </div>
+                <h4 data-i18n="agencies.feat-dashboard-title">Live Dashboard</h4>
+            </div>
+            <p data-i18n="agencies.feat-dashboard-desc">
+                View all your groups on a unified map with progress and health status.
+            </p>
+        </div>
+
+        <div class="agency-card" role="listitem">
+            <div class="agency-card-head">
+                <div class="agency-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                              stroke="#fff" stroke-width="1.6" fill="none"/>
+                    </svg>
+                </div>
+                <h4 data-i18n="agencies.feat-alerts-title">Automatic Alerts</h4>
+            </div>
+            <p data-i18n="agencies.feat-alerts-desc">
+                AI detects anomalies and notifies the guide and operator before climbing.
+            </p>
+        </div>
+
+        <div class="agency-card" role="listitem">
+            <div class="agency-card-head">
+                <div class="agency-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                              stroke="#fff" stroke-width="1.6" fill="none"/>
+                    </svg>
+                </div>
+                <h4 data-i18n="agencies.feat-reports-title">Post-tour Reports</h4>
+            </div>
+            <p data-i18n="agencies.feat-reports-desc">
+                Complete metrics for each tour to optimize routes and experiences.
+            </p>
+        </div>
+
+        <div class="agency-card" role="listitem">
+            <div class="agency-card-head">
+                <div class="agency-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"
+                              stroke="#fff" stroke-width="1.6" fill="none"/>
+                    </svg>
+                </div>
+                <h4 data-i18n="agencies.feat-sync-title">Asynchronous Sync</h4>
+            </div>
+            <p data-i18n="agencies.feat-sync-desc">
+                Operates without continuous internet. Data is synchronized when a signal is available.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ecosystem — iot hardware and software overview -->
+<section class="ecosystem" id="ecosystem" aria-labelledby="ecosystem-heading">
+
+    <span class="section-tag" data-i18n="ecosystem.tag">Technology</span>
+    <h2 id="ecosystem-heading" data-i18n="ecosystem.title">VitalTrek IoT Ecosystem</h2>
+    <p class="ecosystem-desc" data-i18n="ecosystem.description">
+        An integrated ecosystem of hardware and software that captures, synchronizes,
+        and displays data from each adventure in real time or offline.
+    </p>
+
+    <!-- four ecosystem component cards -->
+    <div class="eco-grid" role="list" aria-label="IoT ecosystem components">
+
+        <div class="eco-card" role="listitem">
+            <!-- wearable devices icon -->
+            <div class="eco-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                    <rect x="6" y="2" width="12" height="20" rx="3"/>
+                    <path d="M6 7h12M6 17h12M9 2v2M15 2v2M9 20v2M15 20v2"/>
+                </svg>
+            </div>
+            <h3 data-i18n="ecosystem.wearables-title">IoT Wearables</h3>
+            <p data-i18n="ecosystem.wearables-desc">
+                Compact devices that capture pulse, SpO₂, body temperature and GPS location with long battery life.
+            </p>
+        </div>
+
+        <div class="eco-card" role="listitem">
+            <!-- bluetooth beacon icon -->
+            <div class="eco-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                    <path d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+                </svg>
+            </div>
+            <h3 data-i18n="ecosystem.bluetooth-title">Bluetooth Checkpoints</h3>
+            <p data-i18n="ecosystem.bluetooth-desc">
+                Beacons installed on key routes that record the passage of each tourist and relay data even without WiFi.
+            </p>
+        </div>
+
+        <div class="eco-card" role="listitem">
+            <!-- mobile app icon -->
+            <div class="eco-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                    <rect x="5" y="2" width="14" height="20" rx="2"/>
+                    <path d="M12 18h.01"/>
+                </svg>
+            </div>
+            <h3 data-i18n="ecosystem.mobile-title">Mobile App</h3>
+            <p data-i18n="ecosystem.mobile-desc">
+                Offline navigation, experience recording, and contextual tour information for tourists.
+            </p>
+        </div>
+
+        <div class="eco-card" role="listitem">
+            <!-- web platform icon -->
+            <div class="eco-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                    <rect x="2" y="3" width="20" height="14" rx="2"/>
+                    <path d="M8 21h8M12 17v4"/>
+                </svg>
+            </div>
+            <h3 data-i18n="ecosystem.web-title">Web Platform</h3>
+            <p data-i18n="ecosystem.web-desc">
+                Dashboard for agencies with live maps, automatic alerts and detailed reports for each tour.
+            </p>
+        </div>
+    </div>
+</section>
