@@ -1,0 +1,203 @@
+<!doctype html>
+<!--
+ * index.html - VitalTrek landing page
+ * NexumDevs - UPC 2026
+-->
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VitalTrek — IoT platform for extreme adventure tourism in Peru. Monitor location, vital signs, and progress in real time.">
+  <meta name="keywords" content="VitalTrek, adventure tourism, IoT, trekking Peru, smartwatch, monitoring, NexumDevs">
+  <meta name="author" content="NexumDevs — UPC 2026">
+  <meta name="copyright" content="© 2026 VitalTrek — NexumDevs. All rights reserved.">
+
+  <!-- open graph locale -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="es_419">
+  <meta property="og:title" content="VitalTrek — Explore more. Worry less.">
+  <meta property="og:description" content="IoT platform for extreme adventure tourism in Peru.">
+  <meta property="og:type" content="website">
+
+  <title>VitalTrek — Explore more. Worry less.</title>
+
+  <link rel="icon" href="assets/images/vitaltrek-logo.png" type="image/png">
+  <!-- google fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- aria-live region announces language changes to screen readers -->
+<body>
+<div
+  id="lang-announcer"
+  role="status"
+  aria-live="polite"
+  aria-atomic="true"
+  class="visually-hidden"
+></div>
+
+<!-- 
+     navbar — fixed top navigation bar
+-->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+
+  <!-- brand logo -->
+  <a href="#home" class="nav-logo" aria-label="VitalTrek — go to home">
+    <img src="assets/images/vitaltrek-logo.png" alt="VitalTrek logo" width="40" height="40">
+    <span class="nav-logo-text">VitalTrek</span>
+  </a>
+
+  <!-- collapsible nav links — desktop center / mobile dropdown -->
+  <div class="nav-collapse" id="nav-collapse" role="menubar">
+    <ul class="nav-links" role="list">
+      <li role="none"><a href="#tourists" role="menuitem" data-i18n="nav.tourists">Tourists</a></li>
+      <li role="none"><a href="#agencies" role="menuitem" data-i18n="nav.agencies">Agencies</a></li>
+      <li role="none"><a href="#ecosystem" role="menuitem" data-i18n="nav.ecosystem">Ecosystem</a></li>
+      <li role="none"><a href="#plans" role="menuitem" data-i18n="nav.plans">Plans</a></li>
+      <li role="none"><a href="#about" role="menuitem" data-i18n="nav.about">About us</a></li>
+    </ul>
+  </div>
+
+  <!-- right-side actions: language toggle, hamburger, join cta -->
+  <div class="nav-actions">
+
+    <!-- language toggle pill -->
+    <button
+      class="lang-toggle"
+      onclick="toggleLanguage()"
+      aria-label="Switch to Spanish"
+      id="lang-toggle-btn"
+    >
+      <span class="lang-code" id="lang-code" aria-hidden="true">ES</span>
+      <span class="lang-flag-pill" id="lang-flag" aria-hidden="true">🇵🇪</span>
+    </button>
+
+    <!-- hamburger button — mobile only -->
+    <button
+      class="hamburger-button"
+      onclick="toggleMobileMenu()"
+      aria-expanded="false"
+      aria-controls="nav-collapse"
+      aria-label="Toggle navigation menu"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+
+    <!-- primary cta -->
+    <button class="btn-join" onclick="openJoinModal()" data-i18n="nav.join" aria-label="Join VitalTrek">Join</button>
+  </div>
+
+</nav>
+
+<!-- 
+     hero — main banner with value proposition
+-->
+<section class="hero" id="home" aria-labelledby="hero-heading">
+
+  <div class="hero-content">
+    <div class="hero-badge" data-i18n="hero.badge" role="note">
+      IoT platform for extreme adventure tourism in Peru
+    </div>
+
+    <h1 id="hero-heading">
+      <span data-i18n="hero.title-line">Explore more.</span><br>
+      <em data-i18n="hero.title-italic">Worry </em><span data-i18n="hero.title-bold">less.</span>
+    </h1>
+
+    <p class="hero-desc" data-i18n="hero.description">
+      VitalTrek connects adventurous tourists and tour agencies in a smart ecosystem
+      that monitors location, vital signs, and progress in real time, even without a signal.
+    </p>
+
+    <div class="hero-ctas">
+      <button class="btn-primary" data-i18n="hero.cta-tourist" aria-label="Get started as a tourist">
+        I am a tourist
+      </button>
+      <button class="btn-outline" data-i18n="hero.cta-agency" aria-label="Get started as an agency">
+        I have an agency
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-image-wrap">
+    <img
+      src="assets/images/vitaltrek-image.png"
+      alt="Trekker exploring a snowy mountain route with VitalTrek app"
+      width="640"
+      height="480"
+    >
+  </div>
+
+</section>
+
+<!-- 
+     problem — statistics showing the market gap
+-->
+<section class="problem" id="problem" aria-labelledby="problem-heading">
+
+  <div>
+    <span class="section-tag" data-i18n="problem.tag">The Problem</span>
+    <h2 id="problem-heading">
+      <span data-i18n="problem.title-main">Adventure tourism </span>
+      <span class="color-accent-primary" data-i18n="problem.title-accent">has real risks.</span>
+    </h2>
+    <p class="problem-desc" data-i18n="problem.description">
+      The agencies manage remote groups using radios and phone calls. The trekkers get lost,
+      suffer altitude sickness, or experience medical emergencies with no way to alert others
+      in time. There's no tracking, no history, and no digital experience to build tourist loyalty.
+    </p>
+  </div>
+
+  <!-- statistics grid -->
+  <div class="stats-grid" role="list" aria-label="Market statistics">
+
+    <div class="stat-card" role="listitem">
+      <div
+        class="stat-number"
+        data-i18n="problem.stat-tourists-number"
+        aria-label="4.2 million"
+      >4.2M</div>
+      <p class="stat-desc" data-i18n="problem.stat-tourists-desc">
+        Foreign tourists visit Peru annually, many for extreme adventure.
+      </p>
+    </div>
+
+    <div class="stat-card" role="listitem">
+      <div
+        class="stat-number"
+        data-i18n="problem.stat-iot-number"
+        aria-label="Zero percent"
+      >0%</div>
+      <p class="stat-desc" data-i18n="problem.stat-iot-desc">
+        Local agencies use platforms with integrated IoT monitoring
+      </p>
+    </div>
+
+    <div class="stat-card" role="listitem">
+      <div
+        class="stat-number"
+        data-i18n="problem.stat-days-number"
+        aria-label="3 or more days"
+      >3+</div>
+      <p class="stat-desc" data-i18n="problem.stat-days-desc">
+        Average number of days for a trek without visibility for the agency
+      </p>
+    </div>
+
+    <div class="stat-card" role="listitem">
+      <div class="stat-number" aria-label="Unlimited liability">∞</div>
+      <p class="stat-desc" data-i18n="problem.stat-liability-desc">
+        Legal liability for incidents without an active monitoring system
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
