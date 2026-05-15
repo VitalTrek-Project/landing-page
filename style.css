@@ -1,1 +1,238 @@
 
+/* 
+   plans — pricing cards for tourists and agencies
+*/
+.plans {
+  background: var(--color-surface-lighter);
+  padding: 96px 48px;
+  text-align: center;
+}
+
+.plans h2 {
+  color: var(--color-text-primary);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 46px);
+  margin-bottom: 10px;
+}
+
+.plans-subtitle {
+  color: var(--color-text-tertiary);
+  font-size: 14px;
+  margin: 0 auto 36px;
+  max-width: 540px;
+}
+
+/* tab toggle — tourists vs agencies selector */
+.plans-toggle {
+  background: rgba(26, 35, 50, 0.08);
+  border-radius: 12px;
+  display: inline-flex;
+  gap: 4px;
+  margin-bottom: 52px;
+  padding: 5px;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  border-radius: 9px;
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 30px;
+  transition: all 0.22s;
+}
+
+.toggle-btn.active {
+  background: var(--color-accent-primary);
+  box-shadow: 0 2px 12px rgba(232, 100, 60, 0.30);
+  color: var(--color-text-inverse);
+}
+
+/* plan grid — hidden by default, shown when tab is active */
+.plans-grid {
+  display: none;
+  gap: 22px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  max-width: 1060px;
+  text-align: left;
+}
+
+.plans-grid.active {
+  display: grid;
+}
+
+/* individual plan card */
+.plan-card {
+  background: var(--color-plan-card);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-section);
+  padding: 30px 26px;
+  position: relative;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.plan-card:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+  transform: translateY(-5px);
+}
+
+/* highlighted featured plan */
+.plan-card.featured {
+  background: var(--color-plan-card-featured);
+  border-color: var(--color-accent-primary);
+  box-shadow: 0 4px 24px rgba(232, 100, 60, 0.18);
+}
+
+.plan-tier {
+  color: var(--color-accent-primary);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.plan-title {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.20;
+  margin-bottom: 8px;
+}
+
+.plan-card.featured .plan-title {
+  color: var(--color-text-primary);
+}
+
+.plan-desc {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.plan-card.featured .plan-desc {
+  color: var(--color-text-secondary);
+}
+
+/* price box with dark background */
+.plan-price {
+  background: var(--color-plan-price-box);
+  border-radius: 10px;
+  margin-bottom: 22px;
+  padding: 16px 18px;
+}
+
+.plan-price-main {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* smaller font for non-numeric price labels like "Free" or "Custom" */
+.plan-price-main.free {
+  font-size: 30px;
+}
+
+.plan-price-note {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 11.5px;
+  line-height: 1.4;
+  margin-top: 5px;
+}
+
+/* feature list inside each plan card */
+.plan-features {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.plan-features li {
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.80);
+  display: flex;
+  font-size: 12.5px;
+  gap: 7px;
+  line-height: 1.45;
+  padding: 6px 0;
+}
+
+.plan-card.featured .plan-features li {
+  border-bottom-color: rgba(26, 35, 50, 0.10);
+  color: var(--color-text-secondary);
+}
+
+.plan-features li:last-child {
+  border-bottom: none;
+}
+
+/* checkmark tick in feature list */
+.plan-features li .tick {
+  color: var(--color-accent-primary);
+  flex-shrink: 0;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+/* group label row separating feature categories */
+.plan-features .group-lbl {
+  align-items: center;
+  border-bottom: none;
+  color: rgba(255, 255, 255, 0.40);
+  display: flex;
+  font-size: 10px;
+  font-weight: 700;
+  gap: 6px;
+  letter-spacing: 0.08em;
+  padding: 10px 0 3px;
+  text-transform: uppercase;
+}
+
+.plan-card.featured .plan-features .group-lbl {
+  color: rgba(26, 35, 50, 0.40);
+}
+
+/* small inline svg icon inside group label */
+.group-icon {
+  flex-shrink: 0;
+  height: 12px;
+  width: 12px;
+}
+
+/* plan call-to-action button */
+.btn-plan {
+  background: rgba(255, 255, 255, 0.14);
+  border: none;
+  border-radius: var(--radius-button);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px;
+  transition: background 0.2s, transform 0.15s;
+  width: 100%;
+}
+
+.btn-plan:hover {
+  background: rgba(255, 255, 255, 0.24);
+  transform: translateY(-1px);
+}
+
+/* orange variant for featured plan cta */
+.btn-plan.orange-btn {
+  background: var(--color-accent-primary);
+  color: var(--color-text-inverse);
+}
+
+.btn-plan.orange-btn:hover {
+  background: var(--color-accent-primary-hover);
+}
