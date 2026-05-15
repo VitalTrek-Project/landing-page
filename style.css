@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 /**
 * style.css - VitalTrek stylesheet
@@ -55,10 +56,69 @@ css custom properties — design tokens
 
 /*
 reset — box model and baseline normalization
+=======
+/**
+ * style.css - VitalTrek stylesheet
+ * NexumDevs - UPC 2026
+ */
+
+/* 
+   css custom properties — design tokens
+*/
+:root {
+  /* surface colors — section backgrounds */
+  --color-surface-hero:       #2b3547;
+  --color-surface-nav:        #1e2b3c;
+  --color-surface-deepest:    #17202e;
+  --color-surface-card-dark:  #364257;
+  --color-surface-card-mid:   #2e3b4e;
+  --color-surface-light:      #ebf0f5;
+  --color-surface-lighter:    #f2f6fa;
+
+  /* plan section colors — pricing cards */
+  --color-plan-card:          #8aa4bc;
+  --color-plan-card-featured: #c3daf0;
+  --color-plan-price-box:     #2c3e50;
+
+  /* accent colors — primary and secondary actions */
+  --color-accent-primary:       #e8643c;
+  --color-accent-primary-hover: #d4562e;
+  --color-accent-secondary:     #4a8fd4;
+
+  /* text colors — hierarchy levels */
+  --color-text-inverse:   #fff;
+  --color-text-subtle:    rgba(255, 255, 255, 0.65);
+  --color-text-primary:   #1a2332;
+  --color-text-secondary: #3d4e63;
+  --color-text-tertiary:  #6b7a8d;
+
+  /* border colors */
+  --color-border-inverse:  rgba(255, 255, 255, 0.08);
+  --color-border-default:  rgba(26, 35, 50, 0.10);
+
+  /* shadows — elevation levels */
+  --shadow-elevation-high: 0 12px 40px rgba(0, 0, 0, 0.28);
+  --shadow-card:           0 4px 20px rgba(0, 0, 0, 0.12);
+  --shadow-elevation-low:  0 2px 10px rgba(0, 0, 0, 0.08);
+
+  /* border radius — component scale */
+  --radius-button:  8px;
+  --radius-card:    14px;
+  --radius-section: 20px;
+  --radius-hero:    28px;
+
+  /* layout */
+  --height-navbar: 66px;
+}
+
+/* 
+   reset — box model and baseline normalization
+>>>>>>> origin/feature/landing-hero-navbar
 */
 *,
 *::before,
 *::after {
+<<<<<<< HEAD
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -89,10 +149,43 @@ a {
 
 button {
     font-family: inherit;
+=======
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-surface-lighter);
+  color: var(--color-text-primary);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* accessibility — skip to main content and screen-reader-only utility */
 .visually-hidden {
+<<<<<<< HEAD
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -102,10 +195,22 @@ button {
     position: absolute;
     white-space: nowrap;
     width: 1px;
+=======
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* focus-visible — keyboard navigation outline for all interactive elements */
 :focus-visible {
+<<<<<<< HEAD
     outline: 2px solid var(--color-accent-primary);
     outline-offset: 3px;
 }
@@ -127,10 +232,34 @@ navbar — fixed top bar with logo and navigation
     right: 0;
     top: 0;
     z-index: 1000;
+=======
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 3px;
+}
+
+/* 
+   navbar — fixed top bar with logo and navigation
+ */
+.navbar {
+  align-items: center;
+  background: var(--color-surface-nav);
+  border-bottom: 1px solid var(--color-border-inverse);
+  display: flex;
+  gap: 16px;
+  height: var(--height-navbar);
+  justify-content: space-between;
+  left: 0;
+  padding: 0 48px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* brand logo link */
 .nav-logo {
+<<<<<<< HEAD
     align-items: center;
     display: flex;
     flex-shrink: 0;
@@ -149,10 +278,31 @@ navbar — fixed top bar with logo and navigation
     font-size: 18px;
     font-weight: 700;
     letter-spacing: -0.15px;
+=======
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  height: 100px;
+  object-fit: contain;
+  width: 100px;
+}
+
+.nav-logo-text {
+  color: var(--color-text-inverse);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.15px;
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* collapsible nav links — centered on desktop */
 .nav-collapse {
+<<<<<<< HEAD
     align-items: center;
     display: flex;
     flex: 1;
@@ -179,18 +329,54 @@ navbar — fixed top bar with logo and navigation
 .nav-links a:hover {
     background: rgba(255, 255, 255, 0.08);
     color: var(--color-text-inverse);
+=======
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-links {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  border-radius: 7px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 7px 14px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-inverse);
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* right-side action group */
 .nav-actions {
+<<<<<<< HEAD
     align-items: center;
     display: flex;
     flex-shrink: 0;
     gap: 10px;
+=======
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 10px;
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* language toggle pill */
 .lang-toggle {
+<<<<<<< HEAD
     align-items: center;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -230,10 +416,52 @@ navbar — fixed top bar with logo and navigation
 
 .lang-toggle:hover .lang-flag-pill {
     background: var(--color-accent-primary-hover);
+=======
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+  padding: 3px 4px 3px 10px;
+  transition: background 0.2s;
+}
+
+.lang-toggle:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.lang-code {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.lang-flag-pill {
+  align-items: center;
+  background: var(--color-accent-primary);
+  border-radius: 20px;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 13px;
+  height: 22px;
+  justify-content: center;
+  transition: background 0.2s;
+  width: 30px;
+}
+
+.lang-toggle:hover .lang-flag-pill {
+  background: var(--color-accent-primary-hover);
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* join cta button */
 .btn-join {
+<<<<<<< HEAD
     background: var(--color-accent-primary);
     border: none;
     border-radius: var(--radius-button);
@@ -249,10 +477,28 @@ navbar — fixed top bar with logo and navigation
 .btn-join:hover {
     background: var(--color-accent-primary-hover);
     transform: translateY(-1px);
+=======
+  background: var(--color-accent-primary);
+  border: none;
+  border-radius: var(--radius-button);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 22px;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.btn-join:hover {
+  background: var(--color-accent-primary-hover);
+  transform: translateY(-1px);
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* hamburger toggle — visible on mobile only */
 .hamburger-button {
+<<<<<<< HEAD
     background: none;
     border: none;
     cursor: pointer;
@@ -270,10 +516,30 @@ navbar — fixed top bar with logo and navigation
     height: 2px;
     transition: opacity 0.3s, transform 0.3s;
     width: 22px;
+=======
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 5px;
+  padding: 6px;
+}
+
+.hamburger-button span {
+  background: var(--color-text-inverse);
+  border-radius: 2px;
+  display: block;
+  height: 2px;
+  transition: opacity 0.3s, transform 0.3s;
+  width: 22px;
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* animated hamburger → close icon when menu is open */
 .hamburger-button.active span:nth-child(1) {
+<<<<<<< HEAD
     transform: translateY(7px) rotate(45deg);
 }
 
@@ -298,19 +564,54 @@ shared helpers — section tags and common buttons
     letter-spacing: 0.14em;
     margin-bottom: 16px;
     text-transform: uppercase;
+=======
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-button.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* 
+   shared helpers — section tags and common buttons
+ */
+
+/* section label above headings */
+.section-tag {
+  color: var(--color-accent-primary);
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* inline accent color utilities used in headings */
 .color-accent-primary {
+<<<<<<< HEAD
     color: var(--color-accent-primary);
 }
 
 .color-accent-secondary {
     color: var(--color-accent-secondary);
+=======
+  color: var(--color-accent-primary);
+}
+
+.color-accent-secondary {
+  color: var(--color-accent-secondary);
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* primary filled button */
 .btn-primary {
+<<<<<<< HEAD
     background: var(--color-accent-primary);
     border: none;
     border-radius: var(--radius-button);
@@ -326,10 +627,28 @@ shared helpers — section tags and common buttons
 .btn-primary:hover {
     background: var(--color-accent-primary-hover);
     transform: translateY(-2px);
+=======
+  background: var(--color-accent-primary);
+  border: none;
+  border-radius: var(--radius-button);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 28px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-primary-hover);
+  transform: translateY(-2px);
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* ghost outline button */
 .btn-outline {
+<<<<<<< HEAD
     background: transparent;
     border: 1.5px solid rgba(255, 255, 255, 0.35);
     border-radius: var(--radius-button);
@@ -358,10 +677,41 @@ hero — full-height banner with headline and image
     grid-template-columns: 1fr 1fr;
     min-height: 100vh;
     padding: calc(var(--height-navbar) + 64px) 48px 80px;
+=======
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-button);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 28px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.70);
+}
+
+/* 
+   hero — full-height banner with headline and image
+ */
+.hero {
+  align-items: center;
+  background: var(--color-surface-hero);
+  display: grid;
+  gap: 64px;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  padding: calc(var(--height-navbar) + 64px) 48px 80px;
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* text content column inside hero grid */
 .hero-content {
+<<<<<<< HEAD
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -377,11 +727,29 @@ hero — full-height banner with headline and image
     letter-spacing: 0.10em;
     margin-bottom: 24px;
     text-transform: uppercase;
+=======
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-badge {
+  color: var(--color-accent-primary);
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  gap: 10px;
+  letter-spacing: 0.10em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* decorative lines flanking the badge text */
 .hero-badge::before,
 .hero-badge::after {
+<<<<<<< HEAD
     background: var(--color-accent-primary);
     border-radius: 2px;
     content: '';
@@ -398,10 +766,29 @@ hero — full-height banner with headline and image
     font-weight: 700;
     line-height: 1.10;
     margin-bottom: 20px;
+=======
+  background: var(--color-accent-primary);
+  border-radius: 2px;
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  height: 2px;
+  width: 26px;
+}
+
+.hero h1 {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 5vw, 66px);
+  font-weight: 700;
+  line-height: 1.10;
+  margin-bottom: 20px;
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* italic word in hero headline */
 .hero h1 em {
+<<<<<<< HEAD
     color: rgba(255, 255, 255, 0.50);
     font-style: italic;
 }
@@ -418,10 +805,29 @@ hero — full-height banner with headline and image
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
+=======
+  color: rgba(255, 255, 255, 0.50);
+  font-style: italic;
+}
+
+.hero-desc {
+  color: var(--color-text-subtle);
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 440px;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+>>>>>>> origin/feature/landing-hero-navbar
 }
 
 /* hero image container with rounded corners */
 .hero-image-wrap {
+<<<<<<< HEAD
     aspect-ratio: 4 / 3;
     border-radius: var(--radius-hero);
     box-shadow: var(--shadow-elevation-high);
@@ -871,3 +1277,19 @@ ecosystem — iot components overview
   margin-top: 12px;
   padding: 3px 11px;
 }
+=======
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-hero);
+  box-shadow: var(--shadow-elevation-high);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image-wrap img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+>>>>>>> origin/feature/landing-hero-navbar
