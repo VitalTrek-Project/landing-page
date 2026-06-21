@@ -16,6 +16,18 @@
     "cta-tourist": "I am a tourist",
     "cta-agency": "I have an agency"
   },
+  "app-preview": {
+    "tag": "See it in action",
+    "title-pre": "The platform, ",
+    "title-accent": "in your hands.",
+    "description": "Explore the tourist and agency interfaces: real time map, vital sign monitoring, offline navigation and the live dashboard all in one ecosystem.",
+    "screen-map": "Offline map & GPS",
+    "screen-vitals": "Vital signs monitor",
+    "screen-dashboard": "Agency live dashboard",
+    "screen-journal": "Auto-generated journal",
+    "cta-tourist": "Try the tourist app",
+    "cta-agency": "Try the agency dashboard"
+  },
   "problem": {
     "tag": "The Problem",
     "title-main": "Adventure tourism ",
