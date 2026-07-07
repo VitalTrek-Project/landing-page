@@ -1915,3 +1915,99 @@ mirrors .btn-outline but with a dark border and text color */
     padding: 14px 16px;
   }
 }
+
+/*
+legal pages — terms and privacy
+*/
+.legal-container {
+  max-width: 800px;
+  margin: 0 auto;
+  /* add top padding so content is not hidden under the fixed navbar
+     and add bottom padding to give space at the end of the page */
+  padding: calc(var(--height-navbar) + 24px) 24px 48px;
+  color: var(--color-text-secondary);
+}
+
+.legal-container h1 {
+  font-family: 'Playfair Display', serif;
+  color: var(--color-text-primary);
+  font-size: 36px;
+  /* remove extra top margin because container padding provides spacing */
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.legal-container h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--color-text-primary);
+  font-size: 22px;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--color-border-default);
+  padding-bottom: 8px;
+}
+
+.legal-container p, .legal-container li {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.legal-container ul {
+  list-style-position: inside;
+  padding-left: 8px;
+}
+
+.legal-container a {
+  color: var(--color-accent-primary);
+  text-decoration: underline;
+}
+
+.btn-back {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 24px;
+  background-color: var(--color-accent-primary);
+  color: white !important;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* responsive tweaks for legal pages (privacy and terms) */
+@media (max-width: 900px) {
+  .legal-container {
+    /* slightly smaller top padding on tablets */
+    padding: calc(var(--height-navbar) + 20px) 20px 48px;
+  }
+
+  .legal-container h1 {
+    font-size: 30px;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .legal-container {
+    /* compact padding for small mobiles, keep extra bottom space */
+    padding: calc(var(--height-navbar) + 16px) 16px 64px;
+  }
+
+  .legal-container h1 {
+    font-size: 26px;
+  }
+
+  .legal-container p,
+  .legal-container li {
+    font-size: 14px;
+  }
+
+  /* make the back button full width on small screens for easier tapping */
+  .btn-back {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 12px;
+  }
+}

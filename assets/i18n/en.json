@@ -279,5 +279,79 @@
     "login": "Sign in",
     "register": "Create account",
     "guest": "Continue as guest →"
+  },
+  "terms": {
+    "pageTitle": "Terms and Conditions — VitalTrek",
+    "title": "Terms and Conditions of Service",
+    "lastUpdated": "Last updated: June 26, 2026",
+    "s1": {
+      "title": "1. Acceptance of Terms",
+      "p1": "Welcome to VitalTrek. By using our services, you agree to be bound by these Terms and Conditions. This agreement is a legal contract between you and VitalTrek (\"we\", \"us\", \"our\")."
+    },
+    "s2": {
+      "title": "2. Description of Service",
+      "p1": "VitalTrek provides an IoT platform for monitoring individuals during adventure tourism activities. Our service is a supplementary tool for safety and is not a substitute for professional medical advice or emergency services."
+    },
+    "s3": {
+      "title": "3. Ethical Commitment",
+      "p1": "We adhere to the principles of the ACM/IEEE Code of Ethics for Software Engineering and the CIP Code of Ethics, prioritizing public interest, client and employer, and product quality."
+    },
+    "s4": {
+      "title": "4. User Responsibilities",
+      "li1": "You are responsible for the responsible use of the platform.",
+      "li2": "You acknowledge that outdoor activities carry inherent risks."
+    },
+    "s5": {
+      "title": "5. Data Privacy",
+      "p1_html": "We are committed to protecting your privacy. Our data collection and use practices are detailed in our <a href=\"privacy.html\">Privacy Policy</a>."
+    },
+    "s6": {
+      "title": "6. Limitation of Liability",
+      "p1": "VitalTrek is a tool to assist in safety, not a guarantee of it. We are not liable for any incidents that may occur during your activities."
+    },
+    "s7": {
+      "title": "7. Changes to Terms",
+      "p1": "We may update these terms from time to time. We will notify you of any changes by posting the new terms on this page."
+    }
+  },
+  "privacy": {
+    "pageTitle": "Privacy Policy — VitalTrek",
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: October 26, 2023",
+    "s1": {
+      "title": "1. Introduction",
+      "p1": "VitalTrek is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share your personal information."
+    },
+    "s2": {
+      "title": "2. Information We Collect",
+      "p1": "We may collect the following types of information:",
+      "li1": "Personal identification information (Name, email address, phone number, etc.)",
+      "li2": "Geolocation data during active tours.",
+      "li3": "Vital signs data (heart rate, SpO2) from wearable devices.",
+      "li4": "Technical data (IP address, browser type, etc.)."
+    },
+    "s3": {
+      "title": "3. How We Use Your Information",
+      "p1": "Your information is used to:",
+      "li1": "Provide and maintain our service.",
+      "li2": "Ensure the safety of users during tours.",
+      "li3": "Communicate with you.",
+      "li4": "Improve our platform and services."
+    },
+    "s4": {
+      "title": "4. Data Security",
+      "p1": "We implement robust security measures to protect your data from unauthorized access, alteration, or disclosure. We are committed to the principle of confidentiality and professional responsibility in handling all user data."
+    },
+    "s5": {
+      "title": "5. Your Rights",
+      "p1": "You have the right to access, correct, or delete your personal information. Please contact us to make a request."
+    },
+    "s6": {
+      "title": "6. Contact Us",
+      "p1_html": "If you have any questions about this Privacy Policy, please contact us at <a href=\"mailto:VitalTrekperu@gmail.com\">VitalTrekperu@gmail.com</a>."
+    }
+  },
+  "legal": {
+    "goBack": "Go Back"
   }
 }

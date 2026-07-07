@@ -43,7 +43,11 @@ function applyTranslations() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (translations[key] !== undefined) {
-      el.textContent = translations[key];
+      if (key.endsWith('_html')) {
+        el.innerHTML = translations[key];
+      } else {
+        el.textContent = translations[key];
+      }
     }
   });
 }

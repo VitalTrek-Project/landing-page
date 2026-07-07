@@ -36,7 +36,7 @@
     "stat-tourists-number": "4.2M",
     "stat-tourists-desc": "Turistas extranjeros visitan Perú anualmente, muchos para aventura extrema.",
     "stat-iot-number": "0%",
-    "stat-iot-desc": "Agencias locales usan plataformas con monitoreo IoT integrado",
+    "stat-iot-desc": "Agencias locales usan plataformas com monitoreo IoT integrado",
     "stat-days-number": "3+",
     "stat-days-desc": "Días promedio de un trek sin visibilidad para la agencia",
     "stat-liability-desc": "Responsabilidad legal por incidentes sin sistema de monitoreo activo"
@@ -279,5 +279,79 @@
     "login": "Iniciar sesión",
     "register": "Crear cuenta",
     "guest": "Continuar como invitado →"
+  },
+  "terms": {
+    "pageTitle": "Términos y Condiciones — VitalTrek",
+    "title": "Términos y Condiciones del Servicio",
+    "lastUpdated": "Última actualización: 26 de junio de 2026",
+    "s1": {
+      "title": "1. Aceptación de los Términos",
+      "p1": "Bienvenido a VitalTrek. Al utilizar nuestros servicios, usted acepta estar sujeto a estos Términos y Condiciones. Este acuerdo es un contrato legal entre usted y VitalTrek (\"nosotros\", \"nuestro\")."
+    },
+    "s2": {
+      "title": "2. Descripción del Servicio",
+      "p1": "VitalTrek proporciona una plataforma de IoT para el monitoreo de personas durante actividades de turismo de aventura. Nuestro servicio es una herramienta complementaria para la seguridad y no sustituye el consejo médico profesional o los servicios de emergencia."
+    },
+    "s3": {
+      "title": "3. Compromiso Ético",
+      "p1": "Nos adherimos a los principios del Código de Ética de Ingeniería de Software de la ACM/IEEE y del Código de Ética del CIP, priorizando el interés público, el cliente y el empleador, y la calidad del producto."
+    },
+    "s4": {
+      "title": "4. Responsabilidades del Usuario",
+      "li1": "Usted es responsable del uso responsable de la plataforma.",
+      "li2": "Usted reconoce que las actividades al aire libre conllevan riesgos inherentes."
+    },
+    "s5": {
+      "title": "5. Privacidad de Datos",
+      "p1_html": "Estamos comprometidos a proteger su privacidad. Nuestras prácticas de recopilación y uso de datos se detallan en nuestra <a href=\"privacy.html\">Política de Privacidad</a>."
+    },
+    "s6": {
+      "title": "6. Limitación de Responsabilidad",
+      "p1": "VitalTrek es una herramienta para ayudar en la seguridad, no una garantía de la misma. No nos hacemos responsables de los incidentes que puedan ocurrir durante sus actividades."
+    },
+    "s7": {
+      "title": "7. Cambios en los Términos",
+      "p1": "Podemos actualizar estos términos de vez en cuando. Le notificaremos cualquier cambio publicando los nuevos términos en esta página."
+    }
+  },
+  "privacy": {
+    "pageTitle": "Política de Privacidad — VitalTrek",
+    "title": "Política de Privacidad",
+    "lastUpdated": "Última actualización: 26 de octubre de 2023",
+    "s1": {
+      "title": "1. Introducción",
+      "p1": "VitalTrek se compromete a proteger su privacidad. Esta Política de Privacidad explica cómo recopilamos, usamos y compartimos su información personal."
+    },
+    "s2": {
+      "title": "2. Información que Recopilamos",
+      "p1": "Podemos recopilar los siguientes tipos de información:",
+      "li1": "Información de identificación personal (nombre, dirección de correo electrónico, número de teléfono, etc.)",
+      "li2": "Datos de geolocalización durante los tours activos.",
+      "li3": "Datos de signos vitales (frecuencia cardíaca, SpO2) de los dispositivos portátiles.",
+      "li4": "Datos técnicos (dirección IP, tipo de navegador, etc.)."
+    },
+    "s3": {
+      "title": "3. Cómo Usamos Su Información",
+      "p1": "Su información se utiliza para:",
+      "li1": "Proveer y mantener nuestro servicio.",
+      "li2": "Garantizar la seguridad de los usuarios durante los tours.",
+      "li3": "Comunicarnos con usted.",
+      "li4": "Mejorar nuestra plataforma y servicios."
+    },
+    "s4": {
+      "title": "4. Seguridad de los Datos",
+      "p1": "Implementamos medidas de seguridad sólidas para proteger sus datos del acceso, alteración o divulgación no autorizados. Estamos comprometidos con el principio de confidencialidad y responsabilidad profesional en el manejo de todos los datos de los usuarios."
+    },
+    "s5": {
+      "title": "5. Sus Derechos",
+      "p1": "Usted tiene derecho a acceder, corregir o eliminar su información personal. Por favor, contáctenos para realizar una solicitud."
+    },
+    "s6": {
+      "title": "6. Contáctenos",
+      "p1_html": "Si tiene alguna pregunta sobre esta Política de Privacidad, por favor contáctenos en <a href=\"mailto:VitalTrekperu@gmail.com\">VitalTrekperu@gmail.com</a>."
+    }
+  },
+  "legal": {
+    "goBack": "Regresar"
   }
 }
