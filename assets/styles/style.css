@@ -73,6 +73,7 @@ body {
   color: var(--color-text-primary);
   font-family: 'DM Sans', sans-serif;
   line-height: 1.6;
+  overflow-anchor: none;
   overflow-x: hidden;
 }
 
@@ -285,6 +286,64 @@ navbar — fixed top bar with logo and navigation
 }
 
 /*
+recurring-visitor banner — announces news since the last visit, shown only via
+assets/scripts/visitor.js when localStorage detects a repeat visit
+*/
+.return-banner {
+  align-items: center;
+  background: var(--color-accent-secondary);
+  display: flex;
+  justify-content: center;
+  overflow-anchor: none;
+  padding: 10px 56px;
+  padding-top: calc(var(--height-navbar) + 10px);
+  position: relative;
+  text-align: center;
+}
+
+.return-banner[hidden] {
+  display: none;
+}
+
+.return-banner-link {
+  color: var(--color-text-inverse);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.return-banner-link:hover {
+  text-decoration: underline;
+}
+
+.return-banner-close {
+  background: none;
+  border: none;
+  bottom: 8px;
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  display: flex;
+  opacity: 0.8;
+  padding: 4px;
+  position: absolute;
+  right: 16px;
+  transition: opacity 0.2s;
+}
+
+.return-banner-close:hover {
+  opacity: 1;
+}
+
+.return-banner-close svg {
+  height: 16px;
+  width: 16px;
+}
+
+/* hero clears less space when the banner already accounts for the fixed navbar */
+body.has-banner .hero {
+  padding-top: 64px;
+}
+
+/*
 shared helpers — section tags and common buttons
 */
 
@@ -494,6 +553,101 @@ problem — market gap section with stat cards
   color: var(--color-text-subtle);
   font-size: 13px;
   line-height: 1.55;
+}
+
+/*
+narrative — problem-to-solution story in three steps, reveals on scroll
+*/
+.narrative {
+  background: var(--color-surface-lighter);
+  padding: 96px 48px;
+  text-align: center;
+}
+
+.narrative h2 {
+  color: var(--color-text-primary);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  margin-bottom: 16px;
+}
+
+.narrative-desc {
+  color: var(--color-text-tertiary);
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 0 auto 56px;
+  max-width: 560px;
+}
+
+.narrative-steps {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.narrative-step {
+  background: #fff;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-section);
+  box-shadow: var(--shadow-elevation-low);
+  padding: 32px 26px;
+  position: relative;
+  text-align: left;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* initial state before it scrolls into view — toggled by assets/scripts/visitor.js */
+.narrative-step[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.narrative-step[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.narrative-step-icon {
+  align-items: center;
+  background: var(--color-surface-nav);
+  border-radius: 9px;
+  display: flex;
+  height: 42px;
+  justify-content: center;
+  margin-bottom: 18px;
+  width: 42px;
+}
+
+.narrative-step-icon svg {
+  height: 20px;
+  width: 20px;
+}
+
+.narrative-step-number {
+  color: rgba(26, 35, 50, 0.10);
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  position: absolute;
+  right: 22px;
+  top: 22px;
+}
+
+.narrative-step h3 {
+  color: var(--color-text-primary);
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.narrative-step p {
+  color: var(--color-text-tertiary);
+  font-size: 14px;
+  line-height: 1.65;
 }
 
 /*
@@ -772,6 +926,70 @@ ecosystem — iot components overview
   color: var(--color-text-subtle);
   font-size: 13px;
   line-height: 1.60;
+}
+
+/*
+novedades — static changelog, easy to update by editing the i18n JSON only
+*/
+.novedades {
+  background: var(--color-surface-nav);
+  padding: 96px 48px;
+  text-align: center;
+}
+
+.novedades h2 {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  margin-bottom: 16px;
+}
+
+.novedades-desc {
+  color: var(--color-text-subtle);
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 0 auto 48px;
+  max-width: 520px;
+}
+
+.novedades-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+  margin: 0 auto;
+  max-width: 1100px;
+  text-align: left;
+}
+
+.novedad-card {
+  background: var(--color-surface-card-mid);
+  border: 1px solid var(--color-border-inverse);
+  border-radius: var(--radius-card);
+  padding: 26px 22px;
+}
+
+.novedad-date {
+  color: var(--color-accent-primary);
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.novedad-card h3 {
+  color: var(--color-text-inverse);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.novedad-card p {
+  color: var(--color-text-subtle);
+  font-size: 13.5px;
+  line-height: 1.6;
 }
 
 /*
@@ -1090,6 +1308,32 @@ testimonials — user quotes and reviews
   margin-bottom: 22px;
 }
 
+.testi-author {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.testi-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* initials avatar — honest placeholder for full attribution, no invented stock photos */
+.testi-avatar {
+  align-items: center;
+  background: var(--color-accent-secondary);
+  border-radius: 50%;
+  color: var(--color-text-inverse);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 700;
+  height: 40px;
+  justify-content: center;
+  width: 40px;
+}
+
 .testi-author strong {
   color: var(--color-text-primary);
   display: block;
@@ -1102,6 +1346,18 @@ testimonials — user quotes and reviews
   font-size: 12px;
 }
 
+/* story-format testimonial — highlighted border and context line above the quote */
+.testi-story {
+  border-color: var(--color-accent-secondary);
+}
+
+.testi-context {
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
 .testi-tag {
   background: rgba(232, 100, 60, 0.10);
   border-radius: 20px;
@@ -1112,6 +1368,70 @@ testimonials — user quotes and reviews
   letter-spacing: 0.04em;
   margin-top: 12px;
   padding: 3px 11px;
+}
+
+/*
+social-proof — agency badges and animated impact counters
+*/
+.social-proof {
+  background: var(--color-surface-lighter);
+  padding: 88px 48px;
+  text-align: center;
+}
+
+.social-proof h2 {
+  color: var(--color-text-primary);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3vw, 40px);
+  margin-bottom: 32px;
+}
+
+.social-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 56px;
+}
+
+.social-badge {
+  background: #fff;
+  border: 1px solid var(--color-border-default);
+  border-radius: 20px;
+  box-shadow: var(--shadow-elevation-low);
+  color: var(--color-text-secondary);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 10px 22px;
+}
+
+.counter-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  max-width: 780px;
+}
+
+.counter-card {
+  background: var(--color-surface-card-dark);
+  border-radius: var(--radius-card);
+  padding: 28px 20px;
+}
+
+.counter-number {
+  color: var(--color-accent-secondary);
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.counter-label {
+  color: var(--color-text-subtle);
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 /*
@@ -1246,8 +1566,144 @@ about — company identity, mission, vision and team
   line-height: 1.55;
 }
 
-.video-container {
-  margin-top: 40px;
+.about .video-container {
+  margin-top: 80px;
+}
+
+/*
+faq — conversational accordion using native <details>/<summary> for built-in
+keyboard accessibility (no custom JS required)
+*/
+.faq {
+  background: var(--color-surface-lighter);
+  padding: 96px 48px;
+  text-align: center;
+}
+
+.faq h2 {
+  color: var(--color-text-primary);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3vw, 42px);
+  margin-bottom: 48px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 auto;
+  max-width: 720px;
+  text-align: left;
+}
+
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-card);
+  padding: 18px 22px;
+}
+
+.faq-item summary {
+  color: var(--color-text-primary);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  list-style: none;
+  padding-right: 28px;
+  position: relative;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* custom chevron, rotates when the item is open */
+.faq-item summary::after {
+  border-bottom: 2px solid var(--color-text-tertiary);
+  border-right: 2px solid var(--color-text-tertiary);
+  content: '';
+  height: 8px;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+  width: 8px;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(-135deg);
+}
+
+.faq-item p {
+  color: var(--color-text-tertiary);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 14px;
+}
+
+.faq-item p a {
+  color: var(--color-accent-primary);
+  text-decoration: underline;
+}
+
+/*
+contact-humano — human contact channels, the shared destination for the "request
+a demo" cta across all three visitor profiles
+*/
+.contact-humano {
+  background: var(--color-surface-nav);
+  padding: 96px 48px;
+  text-align: center;
+}
+
+.contact-humano h2 {
+  color: var(--color-text-inverse);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  margin-bottom: 16px;
+}
+
+.contact-humano-desc {
+  color: var(--color-text-subtle);
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 0 auto 48px;
+  max-width: 480px;
+}
+
+.contact-channels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+
+.contact-channel {
+  align-items: center;
+  background: var(--color-surface-card-mid);
+  border: 1px solid var(--color-border-inverse);
+  border-radius: var(--radius-card);
+  color: var(--color-text-inverse);
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 12px;
+  padding: 28px 32px;
+  transition: border-color 0.2s, transform 0.2s;
+  width: 200px;
+}
+
+.contact-channel:hover {
+  border-color: var(--color-accent-primary);
+  transform: translateY(-3px);
+}
+
+.contact-channel-icon {
+  color: var(--color-accent-primary);
+  height: 28px;
+  width: 28px;
 }
 
 /*
@@ -1392,7 +1848,10 @@ footer {
 responsive — tablet breakpoint (max 1024px)
 */
 @media (max-width: 1024px) {
-  .eco-grid {
+  .counter-grid,
+  .eco-grid,
+  .narrative-steps,
+  .novedades-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1468,6 +1927,10 @@ responsive — mobile breakpoint (max 900px)
     padding-top: calc(var(--height-navbar) + 48px);
   }
 
+  body.has-banner .hero {
+    padding-top: 48px;
+  }
+
   .about-cards {
     grid-template-columns: 1fr 1fr;
   }
@@ -1484,6 +1947,16 @@ responsive — mobile breakpoint (max 900px)
   .testi-grid {
     grid-template-columns: 1fr;
   }
+
+  /* nav cta labels shrink before the navbar runs out of room */
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .nav-actions .btn-join {
+    font-size: 12.5px;
+    padding: 7px 14px;
+  }
 }
 
 /*
@@ -1492,10 +1965,15 @@ responsive — small mobile breakpoint (max 600px)
 @media (max-width: 600px) {
   .about,
   .agencies,
+  .contact-humano,
   .ecosystem,
+  .faq,
   .hero,
+  .narrative,
+  .novedades,
   .plans,
   .problem,
+  .social-proof,
   .testimonials,
   .tourists {
     padding: 64px 18px;
@@ -1505,14 +1983,21 @@ responsive — small mobile breakpoint (max 600px)
     padding: calc(var(--height-navbar) + 32px) 18px 56px;
   }
 
+  body.has-banner .hero {
+    padding-top: 32px;
+  }
+
   .hero h1 {
     font-size: 34px;
   }
 
   .agency-grid,
   .about-cards,
+  .counter-grid,
   .eco-grid,
   .features-grid,
+  .narrative-steps,
+  .novedades-grid,
   .stats-grid,
   .testi-grid {
     grid-template-columns: 1fr;
@@ -1553,165 +2038,48 @@ responsive — small mobile breakpoint (max 600px)
     padding: 10px 16px;
     text-align: center;
   }
-}
 
-/*
-join modal — overlay and card
-*/
+  /* navbar — reclaim horizontal space for the two nav ctas */
+  .navbar {
+    gap: 8px;
+    padding: 0 14px;
+  }
 
-/* full-screen overlay — darkens the background */
-.modal-overlay {
-  align-items: center;
-  background: rgba(0, 0, 0, 0.55);
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  left: 0;
-  padding: 24px;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 2000;
-}
+  .nav-logo-text {
+    display: none;
+  }
 
-/* hidden state — overrides display:flex when hidden attribute is present */
-.modal-overlay[hidden] {
-  display: none;
-}
+  /* the 100px brand mark only fits a desktop navbar — shrink it so both
+     nav ctas have room at small mobile widths */
+  .nav-logo img {
+    height: 34px;
+    width: 34px;
+  }
 
-/* white card centered in the overlay */
-.modal-card {
-  background: var(--color-surface-lighter);
-  border-radius: var(--radius-section);
-  box-shadow: var(--shadow-elevation-high);
-  max-width: 520px;
-  padding: 40px 36px 32px;
-  position: relative;
-  width: 100%;
-}
+  .lang-toggle {
+    padding: 3px;
+  }
 
-/* close button — top right corner */
-.modal-close {
-  align-items: center;
-  background: none;
-  border: none;
-  border-radius: 50%;
-  color: var(--color-text-secondary);
-  cursor: pointer;
-  display: flex;
-  height: 32px;
-  justify-content: center;
-  padding: 4px;
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  transition: background 0.2s, color 0.2s;
-  width: 32px;
-}
+  .lang-code {
+    display: none;
+  }
 
-.modal-close:hover {
-  background: rgba(26, 35, 50, 0.08);
-  color: var(--color-text-primary);
-}
+  .return-banner {
+    padding-left: 20px;
+    padding-right: 44px;
+  }
 
-.modal-close svg {
-  height: 18px;
-  width: 18px;
-}
+  .return-banner-link {
+    font-size: 12px;
+  }
 
-/* modal heading and subtitle */
-.modal-title {
-  color: var(--color-text-primary);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 6px;
-}
+  .contact-channels {
+    flex-direction: column;
+  }
 
-.modal-subtitle {
-  color: var(--color-text-secondary);
-  font-size: 14px;
-  margin-bottom: 28px;
-}
-
-/* shared styles for both action buttons */
-.modal-btn {
-  align-items: center;
-  border: 1.5px solid transparent;
-  border-radius: 12px;
-  cursor: pointer;
-  display: flex;
-  font-size: 16px;
-  font-weight: 600;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  padding: 16px 20px;
-  text-decoration: none;
-  transition: filter 0.2s, transform 0.15s;
-  width: 100%;
-}
-
-.modal-btn:hover {
-  filter: brightness(0.93);
-  transform: translateY(-1px);
-}
-
-/* left side of button: icon + label */
-.modal-btn-left {
-  align-items: center;
-  display: flex;
-  gap: 12px;
-}
-
-.modal-btn-left svg {
-  flex-shrink: 0;
-  height: 20px;
-  width: 20px;
-}
-
-/* arrow icon on the right */
-.modal-btn-arrow {
-  flex-shrink: 0;
-  height: 18px;
-  width: 18px;
-}
-
-/* primary button — filled green (matching AgroTrack reference) */
-.modal-btn-primary {
-  background: var(--color-accent-primary);
-  border-color: var(--color-accent-primary);
-  color: #fff;
-}
-
-/* secondary button — outlined green */
-.modal-btn-secondary {
-  background: transparent;
-  border-color: var(--color-surface-nav);
-  color: var(--color-surface-nav);
-}
-
-/* divider line before guest link */
-.modal-card::after {
-  background: rgba(26, 35, 50, 0.12);
-  content: '';
-  display: block;
-  height: 1px;
-  margin: 8px 0 20px;
-}
-
-/* guest link centered below divider */
-.modal-guest {
-  color: var(--color-text-secondary);
-  display: block;
-  font-size: 14px;
-  margin-top: 20px;
-  text-align: center;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.modal-guest:hover {
-  color: var(--color-text-primary);
+  .contact-channel {
+    width: 100%;
+  }
 }
 
 /* ============================================================
@@ -1904,18 +2272,6 @@ mirrors .btn-outline but with a dark border and text color */
   }
 }
 
-/* modal responsive — smaller padding on mobile */
-@media (max-width: 600px) {
-  .modal-card {
-    padding: 32px 20px 24px;
-  }
-
-  .modal-btn {
-    font-size: 15px;
-    padding: 14px 16px;
-  }
-}
-
 /*
 legal pages — terms and privacy
 */
@@ -2009,5 +2365,16 @@ legal pages — terms and privacy
     box-sizing: border-box;
     text-align: center;
     padding: 12px;
+  }
+}
+
+/*
+reduced motion — respect the user's OS preference, disable scroll-triggered reveals
+*/
+@media (prefers-reduced-motion: reduce) {
+  .narrative-step[data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

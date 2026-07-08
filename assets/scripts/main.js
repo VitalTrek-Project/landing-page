@@ -29,19 +29,3 @@ function toggleMobileMenu() {
         hamburger.setAttribute('aria-expanded', isOpen);
     }
 }
-
-function openJoinModal() {
-    const modal = document.getElementById('join-modal');
-    if (modal) {
-        modal.hidden = false;
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function closeJoinModal() {
-    const modal = document.getElementById('join-modal');
-    if (modal) {
-        modal.hidden = true;
-        document.body.style.overflow = '';
-    }
-}

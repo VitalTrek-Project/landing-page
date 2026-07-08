@@ -5,16 +5,21 @@
     "ecosystem": "Ecosystem",
     "plans": "Plans",
     "about": "About us",
-    "join": "Join"
+    "novedades": "News",
+    "demo": "Request demo"
+  },
+  "banner": {
+    "text": "News since your last visit →"
   },
   "hero": {
-    "badge": "IoT platform for extreme adventure tourism in Peru",
-    "title-line": "Explore more.",
-    "title-italic": "Worry ",
-    "title-bold": "less.",
-    "description": "VitalTrek connects adventurous tourists and tour agencies in a smart ecosystem that monitors location, vital signs, and progress in real time, even without a signal.",
+    "badge": "Invisible safety, adventure without limits",
+    "title-line": "Let the adventure be the only risk",
+    "title-italic": "they ",
+    "title-bold": "take.",
+    "description": "Behind every trail, someone is watching over you: location, heartbeat, and every step, tracked in real time, even without signal.",
     "cta-tourist": "I am a tourist",
-    "cta-agency": "I have an agency"
+    "cta-agency": "I have an agency",
+    "cta-demo": "Request a demo"
   },
   "app-preview": {
     "tag": "See it in action",
@@ -41,6 +46,18 @@
     "stat-days-desc": "Average number of days for a trek without visibility for the agency",
     "stat-liability-desc": "Legal liability for incidents without an active monitoring system"
   },
+  "narrative": {
+    "tag": "How it works",
+    "title-pre": "From worry ",
+    "title-accent": "to certainty.",
+    "description": "The same story, every trek: a group sets off, something happens on the trail, and the right people find out in time to help.",
+    "step1-title": "The expedition begins",
+    "step1-desc": "Your tourists set off on the trail wearing their vitals monitor and offline map, connected to you from minute one.",
+    "step2-title": "An alert is detected",
+    "step2-desc": "A heart rate spike, an unexpected stop, a lost signal. VitalTrek notices before it becomes an emergency.",
+    "step3-title": "Help arrives on time",
+    "step3-desc": "Your team gets the exact location and context to respond, and your tourist gets home safe."
+  },
   "tourists": {
     "tag": "For Adventurous Tourists",
     "title-pre": "Your smart ",
@@ -49,7 +66,7 @@
     "offline-nav-title": "Complete offline navigation",
     "offline-nav-desc": "Download maps and routes before you leave. Works in areas without signal using native GPS.",
     "wearable-title": "Wearable device with vital signs",
-    "wearable-desc": "Pulse, oxygenation, and temperature are automatically synchronized with your guide and agency.",
+    "wearable-desc": "Pulse, oxygenation, and temperature travel with you, always in sync with the people looking out for you.",
     "experience-title": "Record of your experience",
     "experience-desc": "Photos, notes, and achievements from the tour are automatically saved with geographical context.",
     "contextual-info-title": "Contextual tour information",
@@ -57,9 +74,9 @@
     "feat-maps-title": "Offline Maps",
     "feat-maps-desc": "Downloadable maps with checkpoints, danger zones, and points of interest. Works offline.",
     "feat-health-title": "Health on the Road",
-    "feat-health-desc": "Continuous monitoring of heart rate and O₂ saturation. Automatic alerts for critical values.",
+    "feat-health-desc": "If something feels off, your guide knows before you do. Heart rate and oxygen watched over, every step of the way.",
     "feat-gps-title": "GPS Tracking",
-    "feat-gps-desc": "Real-time position shared with your guide and emergency contacts, always.",
+    "feat-gps-desc": "Someone always knows exactly where you are: your guide and emergency contacts, in real time.",
     "feat-memory-title": "Memory Maps",
     "feat-memory-desc": "Geotagged photos and videos shared with other travelers at the same route points."
   },
@@ -70,11 +87,38 @@
     "feat-dashboard-title": "Live Dashboard",
     "feat-dashboard-desc": "View all your groups on a unified map with progress and health status.",
     "feat-alerts-title": "Automatic Alerts",
-    "feat-alerts-desc": "AI detects anomalies and notifies the guide and operator before climbing.",
+    "feat-alerts-desc": "Your guide is notified the moment something looks wrong, before it becomes an emergency.",
     "feat-reports-title": "Post-tour Reports",
     "feat-reports-desc": "Complete metrics for each tour to optimize routes and experiences.",
     "feat-sync-title": "Asynchronous Sync",
     "feat-sync-desc": "Operates without continuous internet. Data is synchronized when a signal is available."
+  },
+  "ecosystem": {
+    "tag": "Technology",
+    "title": "VitalTrek IoT Ecosystem",
+    "description": "An integrated ecosystem of hardware and software that captures, synchronizes, and displays data from each adventure in real time or offline.",
+    "wearables-title": "IoT Wearables",
+    "wearables-desc": "Compact devices that capture pulse, SpO₂, body temperature and GPS location with long battery life.",
+    "bluetooth-title": "Bluetooth Checkpoints",
+    "bluetooth-desc": "Beacons installed on key routes that record the passage of each tourist and relay data even without WiFi.",
+    "mobile-title": "Mobile App",
+    "mobile-desc": "Offline navigation, experience recording, and contextual tour information for tourists.",
+    "web-title": "Web Platform",
+    "web-desc": "Dashboard for agencies with live maps, automatic alerts and detailed reports for each tour."
+  },
+  "novedades": {
+    "tag": "News",
+    "title": "What's new at VitalTrek",
+    "subtitle": "Small improvements, shipped often. Here's what changed recently.",
+    "item1-date": "June 2026",
+    "item1-title": "Faster offline sync",
+    "item1-desc": "Wearable data now syncs up to 3x faster the moment a signal is found.",
+    "item2-date": "May 2026",
+    "item2-title": "Auto-generated travel journal",
+    "item2-desc": "Every completed tour now gets a shareable journal with photos, route and vitals.",
+    "item3-date": "April 2026",
+    "item3-title": "Bluetooth checkpoints for Pro plan",
+    "item3-desc": "Agencies on the Pro plan can now install up to 10 trailside checkpoints."
   },
   "plans": {
     "tag": "Plans",
@@ -218,6 +262,7 @@
     "role-mendoza": "Director of Operations · AventurAndes Tours",
     "label-mendoza": "Agency",
     "quote-reyes": "I did the 4-day Choquequirao trek and the automatic journal it generated at the end was incredible. Photos, routes, my vital signs at each point. I wouldn't have documented it the same way on my own.",
+    "story-context": "Solo trekker, no support crew, four days on the Choquequirao trail.",
     "name-reyes": "Sofia Reyes",
     "role-reyes": "Independent Trekker · Lima",
     "label-reyes": "Adventuress",
@@ -225,6 +270,15 @@
     "name-quispe": "Marco Quispe",
     "role-quispe": "CEO · Condor Expeditions Cusco",
     "label-quispe": "Agency"
+  },
+  "social": {
+    "tag": "Trusted by",
+    "title": "Agencies and travelers already protected",
+    "badge-1": "AventurAndes Tours",
+    "badge-2": "Condor Expeditions Cusco",
+    "counter-expeditions-label": "Expeditions protected",
+    "counter-tourists-label": "Tourists monitored",
+    "counter-agencies-label": "Partner agencies"
   },
   "about": {
     "tag": "Who are we",
@@ -243,15 +297,37 @@
   },
   "team": {
     "member-miler-name": "Miler Rodriguez",
-    "member-miler-role": "Software engineer specializing in frontend development and user experience. Responsible for designing modern, intuitive interfaces.",
+    "member-miler-role": "Frontend engineer obsessed with interfaces that stay simple under pressure, because on the trail, simple can save a life.",
     "member-giancarlo-name": "Giancarlo Verastigue",
-    "member-giancarlo-role": "Software engineer focused on backend and databases. Responsible for system logic and secure data handling.",
+    "member-giancarlo-role": "Backend engineer who treats every tourist's data like it belongs to his own family.",
     "member-gabriel-name": "Gabriel Vilchez",
-    "member-gabriel-role": "Software engineer specializing in full-stack development. Supports integration between frontend and backend.",
+    "member-gabriel-role": "Full-stack engineer connecting every piece of VitalTrek so nothing falls through the cracks.",
     "member-joaquin-name": "Joaquin Alfaro",
-    "member-joaquin-role": "Software engineer specializing in mobile development. Designs and maintains applications for Android and iOS.",
+    "member-joaquin-role": "Mobile engineer making sure the app keeps working long after the signal disappears.",
     "member-edu-name": "Edu Quispe",
-    "member-edu-role": "Software engineer specializing in DevOps and cybersecurity. Responsible for deployments, system monitoring, and platform security."
+    "member-edu-role": "DevOps and security engineer who loses sleep so agencies don't have to."
+  },
+  "faq": {
+    "tag": "Frequently asked questions",
+    "title": "Questions? We're happy to answer them.",
+    "q1": "What happens to my tourists' data?",
+    "a1_html": "It's encrypted and used only to keep your tours safe, we never sell it. Full details in our <a href=\"privacy.html\">Privacy Policy</a>.",
+    "q2": "Do you help us implement it?",
+    "a2": "Yes. Every agency plan includes onboarding, guide training, and initial hardware setup.",
+    "q3": "Does it work without internet signal?",
+    "a3": "Yes. VitalTrek is built for the backcountry: it stores data locally and syncs automatically the moment a signal is available.",
+    "q4": "What if a tourist has a real medical emergency?",
+    "a4": "VitalTrek is a monitoring and alert tool, not a replacement for emergency services, but it gives your guide the information they need to respond fast.",
+    "q5": "Can I try it before paying?",
+    "a5": "Yes. The Trekker and Pro plans include a 7-day free trial, no strings attached."
+  },
+  "contact": {
+    "tag": "Talk to a human",
+    "title": "We're here to help you get started",
+    "description": "No forms, no waiting on hold. Reach us directly through whichever channel feels easiest.",
+    "whatsapp-label": "Chat on WhatsApp",
+    "call-label": "Schedule a call",
+    "email-label": "Send us an email"
   },
   "footer": {
     "tagline": "IoT platform for extreme adventure tourism in Peru and Latin America.",
@@ -261,6 +337,8 @@
     "nav-ecosystem": "Ecosystem",
     "nav-plans": "Plans",
     "nav-about": "About us",
+    "nav-faq": "FAQ",
+    "nav-contact": "Contact",
     "social-title": "Social networks",
     "facebook": "Facebook",
     "tiktok": "TikTok",
@@ -272,13 +350,6 @@
     "copyright": "© 2026 VitalTrek — NexumDevs. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms and conditions"
-  },
-  "modal": {
-    "title": "Welcome to VitalTrek",
-    "subtitle": "Select how you want to continue.",
-    "login": "Sign in",
-    "register": "Create account",
-    "guest": "Continue as guest →"
   },
   "terms": {
     "pageTitle": "Terms and Conditions — VitalTrek",
